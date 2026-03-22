@@ -34,3 +34,12 @@ To request access to the official course/exam portal, use this link:
 - Read the guide that matches your preferred language.
 - Work through the scenarios and questions.
 - Use the **Practical Exercises** section to rehearse key patterns (tool design, MCP integration, structured output, context management, and reliability).
+
+## How to contribute
+
+- Add new translations to your language in md files, PDF version will be generated automatically after merge of PR.
+
+
+## How to stay in touch
+
+- Follow me on LinkedIn: https://www.linkedin.com/in/paullarionov/
