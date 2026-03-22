@@ -16,9 +16,9 @@ To request access to the official course/exam portal, use this link:
 
 ## Study guides
 
-- **English guide**: [`guide_en.md`](./guide_en.md)
+- **English guide**: [`guide_en.md`](./guide_en.MD)
 - **Japanese guide**: [`guide_ja.md`](./guide_ja.md)
-- **Russian guide**: [`guide_ru.md`](./guide_ru.md)
+- **Russian guide**: [`guide_ru.md`](./guide_ru.MD)
 - **Chinese guide**: [`guide_zh.md`](./guide_zh.md)
 
 
