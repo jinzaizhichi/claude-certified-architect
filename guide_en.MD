@@ -2114,6 +2114,8 @@ When Edit fails due to a non-unique text match:
 # Practice Test
 
 > 60 questions across 4 scenarios. Format and difficulty match the real exam.
+> 
+> Alternatively, you can practice these questions in an exam-like HTML file: [Practical Test (EN)](practical_test_en.html)
 
 ## Scenario: Multi-agent Research System
 

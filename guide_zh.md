@@ -2114,6 +2114,8 @@ def trim_order_fields(result):
 # 模拟测试
 
 > 涵盖4个场景的60道题。格式和难度与真实考试相匹配。
+>
+> 或者，您可以通过互动HTML文件练习这些题目: [模拟测试 (ZH)](practical_test_zh.html)
 
 ## 场景：多代理研究系统
 
