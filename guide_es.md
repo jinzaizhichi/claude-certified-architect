@@ -72,6 +72,9 @@ El sistema extrae información de documentos no estructurados, valida el resulta
 ### Escenario 7: Patrones de arquitectura de IA conversacional
 Diseñas sistemas conversacionales de múltiples turnos que cubren gestión de ventana de contexto, persistencia de instrucciones a lo largo de los turnos, estrategias de memoria, diseño de herramientas para ejecución segura y manejo de entradas de usuario ambiguas o contradictorias.
 
+### Escenario 8: Herramientas de IA agéntica *(contenido faltante — ¡ayúdanos a completarlo!)*
+Este escenario ha sido reportado por candidatos del examen pero aún no está cubierto en esta guía. Si has encontrado preguntas de este escenario en el examen real, compártelas en [GitHub Issues](https://github.com/paullarionov/claude-certified-architect/issues) para que podamos añadir cobertura completa. Tu contribución ayudará a todos los que se preparan para el examen.
+
 ---
 
 # Documentación oficial

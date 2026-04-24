@@ -72,6 +72,9 @@ Claude Code کو CI/CD pipeline میں ضم کریں تاکہ automated code rev
 ### Scenario 7: Conversational AI Architecture Patterns
 آپ multi-turn conversational systems ڈیزائن کرتے ہیں جن میں context window management، متعدد turns میں instructions کا برقرار رہنا، memory strategies، محفوظ execution کے لیے tool design، اور مبہم یا متضاد user inputs کو سنبھالنا شامل ہے۔
 
+### Scenario 8: Agentic AI Tools *(مواد موجود نہیں — ہماری مدد کریں!)*
+اس scenario کی اطلاع امتحان دینے والے candidates نے دی ہے لیکن یہ ابھی تک اس guide میں شامل نہیں ہے۔ اگر آپ نے اصل امتحان میں اس scenario کے سوالات دیکھے ہیں، تو انہیں [GitHub Issues](https://github.com/paullarionov/claude-certified-architect/issues) میں share کریں تاکہ ہم مکمل coverage شامل کر سکیں۔ آپ کا تعاون ہر اس شخص کی مدد کرے گا جو امتحان کی تیاری کر رہا ہے۔
+
 ---
 
 # سرکاری دستاویزات
@@ -2038,6 +2041,9 @@ Claude Code کو CI/CD pipeline میں ضم کریں تاکہ automated code rev
 
 ### Scenario 7: Conversational AI Architecture Patterns
 آپ multi-turn conversational systems ڈیزائن کرتے ہیں جن میں context window management، متعدد turns میں instructions کا برقرار رہنا، memory strategies، محفوظ execution کے لیے tool design، اور مبہم یا متضاد user inputs کو سنبھالنا شامل ہے۔
+
+### Scenario 8: Agentic AI Tools *(مواد موجود نہیں — ہماری مدد کریں!)*
+اس scenario کی اطلاع امتحان دینے والے candidates نے دی ہے لیکن یہ ابھی تک اس guide میں شامل نہیں ہے۔ اگر آپ نے اصل امتحان میں اس scenario کے سوالات دیکھے ہیں، تو انہیں [GitHub Issues](https://github.com/paullarionov/claude-certified-architect/issues) میں share کریں تاکہ ہم مکمل coverage شامل کر سکیں۔ آپ کا تعاون ہر اس شخص کی مدد کرے گا جو امتحان کی تیاری کر رہا ہے۔
 
 ---
 
