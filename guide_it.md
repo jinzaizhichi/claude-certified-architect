@@ -29,7 +29,7 @@ Il candidato ideale è un **solution architect** che progetta e rilascia applica
 ## Formato dell'Esame
 
 | Parametro | Valore |
-|---|---|
+| --- | --- |
 | Tipo di domanda | Scelta multipla (1 risposta corretta su 4) |
 | Punteggio | Scala da 100 a 1000, punteggio minimo per il superamento **720** |
 | Penalità per risposta errata | Nessuna (rispondi a tutte le domande!) |
@@ -52,67 +52,66 @@ Il candidato ideale è un **solution architect** che progetta e rilascia applica
 ## Scenari d'Esame
 
 ### Scenario 1: Agente per l'assistenza al cliente
+
 Viene costruito un agente per gestire resi, contestazioni di fatturazione e problemi relativi agli account utilizzando il Claude Agent SDK. L’agente utilizza strumenti MCP (`get_customer`, `lookup_order`, `process_refund`, `escalate_to_human`). L’obiettivo è raggiungere un tasso di risoluzione al primo contatto superiore all'80%, con escalation appropriata quando necessario.
 
 ### Scenario 2: Generazione di codice con Claude Code
+
 Claude Code viene utilizzato per accelerare lo sviluppo: generazione di codice, refactoring, debug e documentazione. È necessario integrarlo con comandi personalizzati e configurazione tramite CLAUDE.md, oltre a comprendere quando utilizzare la modalità di planning.
 
 ### Scenario 3: Sistema di ricerca multi-agente
+
 Un agente coordinatore delega attività a subagenti specializzati: ricerca web, analisi documentale, sintesi e generazione di report. Il sistema deve produrre report completi con citazioni.
 
 ### Scenario 4: Strumenti di produttività per sviluppatori
+
 L’agente supporta gli sviluppatori nell’esplorazione di codebase sconosciute, nella generazione di codice boilerplate e nell’automazione di attività ripetitive. Vengono utilizzati strumenti integrati (Read, Write, Bash, Grep, Glob) e server MCP.
 
 ### Scenario 5: Claude Code per la Continuous Integration
+
 Integrazione di Claude Code in una pipeline CI/CD per revisione automatica del codice, generazione di test e feedback sulle pull request. I prompt devono essere progettati per ridurre al minimo i falsi positivi.
 
-### Scenario 6: Structured Data Extraction
-The system extracts information from unstructured documents, validates output with JSON schemas, and maintains high accuracy. It must correctly handle edge cases.
-
-### Scenario 7: Conversational AI Architecture Patterns
-You design multi-turn conversational systems covering context window management, instruction persistence across turns, memory strategies, tool design for safe execution, and handling ambiguous or conflicting user inputs.
-
-### Scenario 8: Agentic AI Tools *(content missing — help us fill it in!)*
-This scenario has been reported by exam candidates but is not yet covered in this guide. If you have encountered questions from this scenario on the real exam, please share them in [GitHub Issues](https://github.com/paullarionov/claude-certified-architect/issues) so we can add full coverage. Your contribution will help everyone preparing for the exam.
-
 ### Scenario 6: Estrazione di Dati Strutturati
+
 Il sistema estrae informazioni da documenti non strutturati, valida l’output tramite JSON schema e mantiene un’elevata accuratezza. Deve gestire correttamente anche i casi limite.
 
 ### Scenario 7: Pattern di architettura per AI conversazionale
+
 Si progettano sistemi conversazionali multi-turno che includono gestione della finestra di contesto, persistenza delle istruzioni tra i turni, strategie di memoria, progettazione di strumenti per l’esecuzione sicura e gestione di input utente ambigui o contraddittori.
 
 ### Scenario 8: Strumenti di AI agentica *(contenuto mancante — aiutaci!)*
+
 Questo scenario è stato segnalato dai candidati all’esame ma non è ancora coperto in questa guida. Se hai incontrato domande relative a questo scenario durante l’esame reale, condividili qui [GitHub Issues](https://github.com/paullarionov/claude-certified-architect/issues) così da aumentare la completezza della guida. Il tuo contributo aiuterà tutti nella preparazione dell'esame.
 
 ---
 
-# Official Documentation
+## Official Documentation
 
 | Risorsa | URL |
-|---|---|
-| **Claude API — Messages** | https://platform.claude.com/docs/en/api/messages |
-| **Claude API — Tool Use** | https://platform.claude.com/docs/en/build-with-claude/tool-use |
-| **Claude API — Message Batches** | https://platform.claude.com/docs/en/build-with-claude/message-batches |
-| **Claude Agent SDK — Overview** | https://platform.claude.com/docs/en/agent-sdk/overview |
-| **Claude Agent SDK — Hooks** | https://platform.claude.com/docs/en/agent-sdk/hooks |
-| **Claude Agent SDK — Subagents** | https://platform.claude.com/docs/en/agent-sdk/subagents |
-| **Claude Agent SDK — Sessions** | https://platform.claude.com/docs/en/agent-sdk/sessions |
-| **Model Context Protocol (MCP)** | https://modelcontextprotocol.io/ |
-| **MCP — Tools** | https://modelcontextprotocol.io/docs/concepts/tools |
-| **MCP — Resources** | https://modelcontextprotocol.io/docs/concepts/resources |
-| **MCP — Servers** | https://modelcontextprotocol.io/docs/concepts/servers |
-| **Claude Code — Documentation** | https://code.claude.com/docs/en/overview |
-| **Claude Code — CLAUDE.md and Memory** | https://code.claude.com/docs/en/memory |
-| **Claude Code — Skills (inclusi i comandi slash)** | https://code.claude.com/docs/en/skills |
-| **Claude Code — Hooks** | https://code.claude.com/docs/en/hooks |
-| **Claude Code — Sub-agents** | https://code.claude.com/docs/en/sub-agents |
-| **Claude Code — MCP Integration** | https://code.claude.com/docs/en/mcp |
-| **Claude Code — GitHub Actions CI/CD** | https://code.claude.com/docs/en/github-actions |
-| **Claude Code — GitLab CI/CD** | https://code.claude.com/docs/en/gitlab-ci-cd |
-| **Claude Code — Headless (modalità non interattiva)** | https://code.claude.com/docs/en/headless |
-| **Prompt Engineering Guide** | https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview |
-| **Extended Thinking** | https://platform.claude.com/docs/en/build-with-claude/extended-thinking |
-| **Anthropic Cookbook (esempi di codice)** | https://github.com/anthropics/anthropic-cookbook |
+| --- | --- |
+| **Claude API — Messages** | <https://platform.claude.com/docs/en/api/messages> |
+| **Claude API — Tool Use** | <https://platform.claude.com/docs/en/build-with-claude/tool-use> |
+| **Claude API — Message Batches** | <https://platform.claude.com/docs/en/build-with-claude/message-batches> |
+| **Claude Agent SDK — Overview** | <https://platform.claude.com/docs/en/agent-sdk/overview> |
+| **Claude Agent SDK — Hooks** | <https://platform.claude.com/docs/en/agent-sdk/hooks> |
+| **Claude Agent SDK — Subagents** | <https://platform.claude.com/docs/en/agent-sdk/subagents> |
+| **Claude Agent SDK — Sessions** | <https://platform.claude.com/docs/en/agent-sdk/sessions> |
+| **Model Context Protocol (MCP)** | <https://modelcontextprotocol.io/> |
+| **MCP — Tools** | <https://modelcontextprotocol.io/docs/concepts/tools> |
+| **MCP — Resources** | <https://modelcontextprotocol.io/docs/concepts/resources> |
+| **MCP — Servers** | <https://modelcontextprotocol.io/docs/concepts/servers> |
+| **Claude Code — Documentation** | <https://code.claude.com/docs/en/overview> |
+| **Claude Code — CLAUDE.md and Memory** | <https://code.claude.com/docs/en/memory> |
+| **Claude Code — Skills (inclusi i comandi slash)** | <https://code.claude.com/docs/en/skills> |
+| **Claude Code — Hooks** | <https://code.claude.com/docs/en/hooks> |
+| **Claude Code — Sub-agents** | <https://code.claude.com/docs/en/sub-agents> |
+| **Claude Code — MCP Integration** | <https://code.claude.com/docs/en/mcp> |
+| **Claude Code — GitHub Actions CI/CD** | <https://code.claude.com/docs/en/github-actions> |
+| **Claude Code — GitLab CI/CD** | <https://code.claude.com/docs/en/gitlab-ci-cd> |
+| **Claude Code — Headless (modalità non interattiva)** | <https://code.claude.com/docs/en/headless> |
+| **Prompt Engineering Guide** | <https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview> |
+| **Extended Thinking** | <https://platform.claude.com/docs/en/build-with-claude/extended-thinking> |
+| **Anthropic Cookbook (esempi di codice)** | <https://github.com/anthropics/anthropic-cookbook> |
 
 ---
 
@@ -146,6 +145,7 @@ La API Claude seguono un modello request–response. Ogni richiesta alla Message
 ```
 
 **Campi principali:**
+
 - `model` — selezione del modello (`claude-opus-4-6`, `claude-sonnet-4-6`, `claude-haiku-4-5`)
 - `max_tokens` — numero massimo di token nella risposta
 - `system` — system prompt (definisce il comportamento del modello)
@@ -156,6 +156,7 @@ La API Claude seguono un modello request–response. Ogni richiesta alla Message
 ## 1.2 Ruoli dei Messaggi
 
 L'array `messages` utilizza tre ruoli:
+
 - `user` — messaggi dell’utente
 - `assistant` — risposte del modello (incluse quando si invia la cronologia)
 - `tool` — risultati delle chiamate agli strumenti (il ruolo non è impostato esplicitamente; questi risultati compaiono come blocchi `tool_result` nel contenuto)
@@ -167,7 +168,7 @@ L'array `messages` utilizza tre ruoli:
 La risposta delle API Claude include `stop_reason`, che indica il motivo per cui la generazione si è interrotta:
 
 | Valore | Descrizione | Azione |
-|---|---|---|
+| --- | --- | --- |
 | `"end_turn"` | Il modello ha completato la risposta | Mostrare il risultato all’utente |
 | `"tool_use"` | Il modello richiede una chiamata a uno strumento | Eseguire lo strumento e restituire il risultato |
 | `"max_tokens"` | Limite di token raggiunto | La risposta è troncata; può essere necessario aumentare il limite |
@@ -251,12 +252,13 @@ Ogni strumento viene definito tramite uno schema JSON:
 `tool_choice` controlla come il modello seleziona gli strumenti:
 
 | Valore | Comportamento | Quando usarlo |
-|---|---|---|
+| --- | --- | --- |
 | `{"type": "auto"}` | Il modello decide se chiamare uno strumento o rispondere in testo | Default nella maggior parte dei casi |
 | `{"type": "any"}` | Il modello **deve** chiamare uno strumento | Quando è necessaria un’uscita strutturata garantita |
 | `{"type": "tool", "name": "extract_metadata"}` | Il modello **deve** chiamare uno strumento specifico | Quando è necessario forzare un’azione iniziale o una sequenza di esecuzione |
 
 **Scenari importanti:**
+
 - `tool_choice: "any"` + più strumenti di estrazione → il modello seleziona il più adatto, ma l’output rimane strutturato
 - Selezione forzata → quando è necessario garantire una prima azione specifica (es. `extract_metadata` prima dell’arricchimento)
 
@@ -309,11 +311,10 @@ L’uso di `tool_use` con JSON schema è il modo **più affidabile** per ottener
 
 ## 2.5 Errori Sintattici vs Semantici
 
-
-| Tipo di errore |	Esempio |	Mitigazione |
+| Tipo di errore | Esempio | Mitigazione |
 | --- | --- | --- |
-| **Sintattico** |	JSON non valido, tipo di campo errato |	`tool_use` con JSON schema (elimina il problema) |
-| **Semantico** |	Totali incoerenti, valore nel campo sbagliato, allucinazioni | 	Validazione esterna, retry con feedback, meccanismi di autocorrezione |
+| **Sintattico** | JSON non valido, tipo di campo errato | `tool_use` con JSON schema (elimina il problema) |
+| **Semantico** | Totali incoerenti, valore nel campo sbagliato, allucinazioni | Validazione esterna, retry con feedback, meccanismi di autocorrezione |
 
 # Capitolo 3: Claude Agent SDK — Costruzione di Sistemi Agentici
 
@@ -321,9 +322,9 @@ L’uso di `tool_use` con JSON schema è il modo **più affidabile** per ottener
 
 ## 3.1 Cos’è un Agentic Loop
 
-L’agentic loop è il pattern centrale per l’esecuzione autonoma di task. 
+L’agentic loop è il pattern centrale per l’esecuzione autonoma di task.
 
-```
+```markdown
 Il modello non si limita a rispondere: esegue una sequenza di azioni:
 1. Invia una richiesta a Claude con strumenti disponibili
 2. Riceve una risposta
@@ -336,6 +337,7 @@ Il modello non si limita a rispondere: esegue una sequenza di azioni:
 **Approccio guidato dal modello:** Claude decide quale strumento chiamare successivamente in base al contesto e ai risultati delle chiamate precedenti. Questo differisce da approcci a logica rigida (decision tree), in cui la sequenza è predefinita.
 
 **Anti-pattern da evitare:**
+
 - Analizzare il testo del modello per rilevare la conclusione (“Task completato”)
 - Usare un limite arbitrario di iterazioni (es. `max_iterations=5`) come condizione primaria di stop
 - Considerare la presenza di testo come segnale di completamento
@@ -367,7 +369,7 @@ Parametri principali:
 
 Un’architettura multi-agente è tipicamente costruita secondo una topologia hub-and-spoke:
 
-```
+```markdown
      Coordinator
     /     |      \
 Subagent1 Subagent2 Subagent3
@@ -375,6 +377,7 @@ Subagent1 Subagent2 Subagent3
 ```
 
 **Il coordinator è responsabile di:**
+
 - Decomposizione del task in sotto-attività
 - Scelta dinamica dei subagent necessari
 - Delega delle attività ai subagent
@@ -383,6 +386,7 @@ Subagent1 Subagent2 Subagent3
 - Comunicazione del risultato finale all’utente
 
 **Principio critico: i subagent hanno contesto isolato.**
+
 - I subagent **non** ereditano automaticamente la cronologia del coordinator
 - Tutto il contesto necessario deve essere **passato esplicitamente nel prompt**
 - I subagent non condividono memoria tra chiamate
@@ -401,7 +405,7 @@ coordinator_agent = AgentDefinition(
 
 Il passaggio esplicito del contesto è obbligatorio:
 
-```
+```markdown
 # Errato: il subagent non ha contesto
 Task: "Analizza il documento"
 
@@ -414,7 +418,7 @@ Formato di output richiesto: [schema]"
 
 Esecuzione parallela: un coordinator può invocare più `Task` in una singola risposta — i subagent vengono eseguiti in parallelo:
 
-```
+```markdown
 # Un’unica risposta del coordinator contiene:
 Task 1: "Cerca articoli su X"
 Task 2: "Analizza documento Y"
@@ -449,11 +453,11 @@ def enforce_refund_limit(tool_call):
 
 **Differenza chiave: hook vs istruzioni nel prompt**
 
-| Attributo |	Hooks |	Istruzioni nel prompt |
+| Attributo | Hooks | Istruzioni nel prompt |
 | --- | --- | --- |
-| Garanzia |	Deterministica (100%) |	Probabilistica (>90%, non garantita) |
-| Quando usarli |	Regole critiche, operazioni finanziarie, compliance | Preferenze generali, raccomandazioni, formattazione | 
-| Esempio |	Bloccare rimborsi > 500$ |	“Prova a risolvere prima di escalation” |
+| Garanzia | Deterministica (100%) | Probabilistica (>90%, non garantita) |
+| Quando usarli | Regole critiche, operazioni finanziarie, compliance | Preferenze generali, raccomandazioni, formattazione |
+| Esempio | Bloccare rimborsi > 500$ | “Prova a risolvere prima di escalation” |
 
 **Regola**: quando un errore ha conseguenze finanziarie, legali o di sicurezza, usare gli hook e non il prompt.
 
@@ -569,16 +573,21 @@ Le Resources sono dati che un agente può richiedere per ottenere contesto senza
 CLAUDE.md è il file (o insieme di file) di istruzioni per Claude Code. Esiste una gerarchia su tre livelli:
 
 1. Livello utente: ~/.claude/CLAUDE.md
-  - Si applica solo a quel singolo utente
-  - NON viene condiviso tramite VCS
-  - Preferenze personali e stile di lavoro
-2. Livello progetto: .claude/CLAUDE.md oppure CLAUDE.md nella root
-  - Si applica a tutti i contributori del progetto
-  - Gestito tramite VCS
-  - Standard di codice, testing, decisioni architetturali
-3. Livello directory: CLAUDE.md nelle sottodirectory
-  - Si applica quando si lavora sui file di quella directory
-  - Convenzioni specifiche per quella parte del codebase
+
+- Si applica solo a quel singolo utente
+- NON viene condiviso tramite VCS
+- Preferenze personali e stile di lavoro
+
+1. Livello progetto: .claude/CLAUDE.md oppure CLAUDE.md nella root
+
+- Si applica a tutti i contributori del progetto
+- Gestito tramite VCS
+- Standard di codice, testing, decisioni architetturali
+
+1. Livello directory: CLAUDE.md nelle sottodirectory
+
+- Si applica quando si lavora sui file di quella directory
+- Convenzioni specifiche per quella parte del codebase
 
 **Errore comune:** un nuovo membro del team non riceve le istruzioni di progetto perché sono state inserite in `~/.claude/CLAUDE.md` (livello utente) invece che in `.claude/CLAUDE.md` (livello progetto).
 
@@ -607,7 +616,7 @@ Questo evita duplicazioni e consente a ogni package di includere solo gli standa
 
 `.claude/rules/` è un’alternativa al CLAUDE.md monolitico, usata per organizzare le regole per argomento:
 
-```
+```markdown
 .claude/rules/
 testing.md -- convenzioni di test
 api-conventions.md -- convenzioni API
@@ -670,10 +679,12 @@ test-gen/SKILL.md
 ```
 
 **Comandi di progetto** (`.claude/commands/` o `.claude/skills/`):
+
 - Salvati nel VCS e disponibili a tutti dopo il clone del repository
 - Garantiscono workflow coerenti a livello di team
 
 **Comandi utente** (`~/.claude/commands/` o `~/.claude/skills/`):
+
 - Comandi personali non condivisi tramite VCS
 - Utilizzati per workflow individuali
 
@@ -694,11 +705,11 @@ Fornisci un report su dipendenze e pattern architetturali.
 
 **Parametri del frontmatter:**
 
-| **Parametro** |	**Descrizione** | 
+| **Parametro** | **Descrizione** |
 | --- | --- |
-| `context: fork` |	Esegue la skill in un subagent isolato. L’output dettagliato non sporca la sessione principale |
+| `context: fork` | Esegue la skill in un subagent isolato. L’output dettagliato non sporca la sessione principale |
 | `allowed-tools` | Limita gli strumenti disponibili (sicurezza—ad esempio la skill non può eliminare file se non autorizzata) |
-| `argument-hint` |	Suggerimento che richiede un argomento quando la skill viene invocata senza parametri
+| `argument-hint` | Suggerimento che richiede un argomento quando la skill viene invocata senza parametri
 
 **Quando usare una skill vs CLAUDE.md:**
 
@@ -712,12 +723,14 @@ Fornisci un report su dipendenze e pattern architetturali.
 ## 5.6 Planning Mode vs Esecuzione Diretta
 
 **Planning mode:**
+
 - Il modello si limita a esplorare e pianificare; non esegue modifiche
 - Utilizza Read, Grep, Glob per analizzare il codebase
 - Produce un piano di implementazione che deve essere approvato dall’utente
 - Esplorazione sicura senza effetti collaterali
 
 **Quando usare il planning mode:**
+
 - Modifiche estese (decine di file)
 - Più approcci possibili (es. microservizi: definizione dei confini)
 - Decisioni architetturali (framework, struttura del progetto)
@@ -725,16 +738,19 @@ Fornisci un report su dipendenze e pattern architetturali.
 - Migrazioni di librerie che coinvolgono 45+ file
 
 **Quando usare l’esecuzione diretta:**
+
 - Fix su singolo file con stack trace chiaro
 - Aggiunta di una singola validazione
 - Modifiche ben definite e non ambigue
 
 **Approccio combinato:**
+
 1. Planning mode per investigazione e progettazione
 2. Approvazione del piano da parte dell’utente
 3. Esecuzione diretta per implementare il piano approvato
 
 **Explore subagent** — subagent specializzato per l’esplorazione del codebase:
+
 - Isola output verbose dal contesto principale
 - Restituisce solo un riassunto
 - Previene l’esaurimento della context window in task multi-fase
@@ -742,6 +758,7 @@ Fornisci un report su dipendenze e pattern architetturali.
 ## 5.7 Comando `/compact`
 
 `/compact` è un comando integrato per la compressione del contesto:
+
 - Riassume la cronologia precedente per liberare la context window
 - Utilizzato in sessioni lunghe quando il contesto si riempie di output verboso di strumenti
 - Rischio: valori numerici esatti, date e dettagli specifici possono andare persi durante la sintesi
@@ -749,6 +766,7 @@ Fornisci un report su dipendenze e pattern architetturali.
 ## 5.8 Comando `/memory`
 
 `/memory` è un comando integrato per la gestione della memoria tra sessioni:
+
 - Apre il file `CLAUDE.md` per la modifica, permettendo di salvare note, preferenze e contesto
 - Le informazioni persistono tra sessioni e vengono caricate automaticamente all’avvio
 - Utile per memorizzare convenzioni di progetto, preferenze utente, comandi frequenti e stato del lavoro corrente
@@ -794,7 +812,7 @@ claude --resume investigation-auth-bug
 
 `fork_session` crea un ramo indipendente a partire da un contesto condiviso:
 
-```
+```markdown
 Analisi codebase
          |
    fork_session
@@ -808,6 +826,7 @@ Redux           Context API
 - Utile per confrontare approcci o testare strategie alternative
 
 **Quando avviare una nuova sessione invece di riprendere una precedente:**
+
 - I risultati degli strumenti sono potenzialmente obsoleti (file modificati)
 - È passato molto tempo e il contesto è degradato
 - È preferibile ripartire con un riassunto esplicito (“Ecco ciò che abbiamo trovato finora: …”) invece di continuare una sessione basata su dati non aggiornati
@@ -823,6 +842,7 @@ Redux           Context API
 Il few-shot prompting consiste nell’inserire 2–4 esempi input/output all’interno di un prompt per dimostrare il comportamento atteso.
 
 **Perché il few-shot è più efficace delle descrizioni testuali:**
+
 - Un’istruzione vaga come “sii più preciso” può essere interpretata in molti modi
 - Un esempio elimina l’ambiguità mostrando formato e logica decisionale attesi
 - Il modello generalizza il pattern a nuovi casi (non si limita a ripetere gli esempi)
@@ -831,7 +851,7 @@ Il few-shot prompting consiste nell’inserire 2–4 esempi input/output all’i
 
 1. **Esempi per scenari ambigui:**
 
-```
+```markdown
 Richiesta: "Il mio ordine è rotto"
 Azione: chiamare get_customer -> lookup_order -> verificare stato
 Motivazione: “rotto” può indicare un prodotto danneggiato; servono dettagli sull’ordine
@@ -841,9 +861,9 @@ Azione: chiamare immediatamente escalate_to_human
 Motivazione: il cliente richiede esplicitamente un umano. Non tentare risoluzione autonoma
 ```
 
-2. **Esempi per formattazione dell’output:**
+1. **Esempi per formattazione dell’output:**
 
-```
+```markdown
 Esempio di finding:
 {
 "location": "src/auth/login.ts:42",
@@ -853,9 +873,9 @@ Esempio di finding:
 }
 ```
 
-3. **Esempi per distinguere codice accettabile vs problematico:**
+1. **Esempi per distinguere codice accettabile vs problematico:**
 
-```
+```markdown
 // Accettabile (non segnalare):
 const items = data.filter(x => x.active);
 
@@ -863,9 +883,9 @@ const items = data.filter(x => x.active);
 const items = data.filter(x => x.active == true); // usare strict equality ===
 ```
 
-4. **Esempi per estrazione da formati documentali diversi:**
+1. **Esempi per estrazione da formati documentali diversi:**
 
-```
+```markdown
 Documento con citazioni inline:
 "Come mostrato nello studio (Smith, 2023), il tasso è del 42%."
 -> {"value": "42%", "source": "Smith, 2023", "type": "inline_citation"}
@@ -875,9 +895,9 @@ Documento con bibliografia:
 -> {"value": "42%", "source": "reference_1", "type": "bibliography"}
 ```
 
-5. **Esempi per misurazioni informali:**
+1. **Esempi per misurazioni informali:**
 
-```
+```markdown
 Testo: "circa due manciate di riso"
 -> {"amount": "~100g", "original_text": "due manciate", "precision": "approximate"}
 
@@ -890,7 +910,7 @@ Il few-shot è particolarmente efficace per estrarre unità di misura informali 
 **Regole di normalizzazione nei prompt:**
 Quando si usano JSON schema rigorosi per output strutturati, è utile aggiungere regole di normalizzazione nel prompt:
 
-```
+```markdown
 Normalizzazione:
 
 Date: sempre ISO 8601 (YYYY-MM-DD); "ieri" -> convertire in data assoluta
@@ -904,14 +924,14 @@ Questo riduce gli errori semantici, in cui il JSON è sintatticamente valido ma 
 
 **Sbagliato (vago):**
 
-```
+```markdown
 Controlla la correttezza dei commenti nel codice.
 Sii conservativo — riporta solo problemi ad alta confidenza.
 ```
 
 **Corretto (criteri espliciti):**
 
-```
+```markdown
 Segnala un commento come problematico SOLO se:
 
 1. Il commento descrive un comportamento che CONTRADDICE il comportamento reale del codice
@@ -927,7 +947,7 @@ NON segnalare:
 
 **Definizione delle severità con esempi:**
 
-```
+```markdown
 CRITICAL: Fallimento runtime per l’utente
   Esempio: NullPointerException durante l’elaborazione di un pagamento
 
@@ -945,7 +965,7 @@ LOW: Qualità del codice
 
 Il prompt chaining scompone un task complesso in una sequenza di passaggi focalizzati:
 
-```
+```markdown
 Step 1: Analizzare auth.ts (solo problemi locali)
 -> Output: lista di problemi in auth.ts
 
@@ -957,11 +977,13 @@ Step 3: Passaggio di integrazione (dipendenze cross-file)
 ```
 
 **Perché è importante:**
+
 - Evita la **diluizione dell’attenzione**: quando il modello riceve troppi file insieme, può perdere bug in alcuni file e fornire analisi superficiali su altri
 - Garantisce qualità di analisi coerente per ogni file
 - Permette di separare l’analisi locale da quella delle interazioni tra file
 
 **Quando usare prompt chaining vs decomposizione dinamica:**
+
 - **Prompt chaining** — task prevedibili e ripetibili (code review, migrazioni di file)
 - **Decomposizione dinamica** — investigazioni aperte dove i sotto-task emergono solo durante l’esecuzione
 
@@ -969,7 +991,7 @@ Step 3: Passaggio di integrazione (dipendenze cross-file)
 
 Prima di implementare una soluzione, Claude pone domande di chiarimento:
 
-```
+```markdown
 Claude: "Prima di implementare il caching per l’API, alcune domande:
 
 Quale strategia di invalidazione preferisci—TTL o event-based?
@@ -979,6 +1001,7 @@ Qual è il volume di dati atteso da memorizzare?"
 ```
 
 **Quando è utile:**
+
 - Domini non familiari (fintech, healthcare, sistemi legali)
 - Task con implicazioni non ovvie (strategie di caching, failure mode)
 - Più approcci validi dove la scelta dipende dal contesto
@@ -987,7 +1010,7 @@ Qual è il volume di dati atteso da memorizzare?"
 
 Quando i dati estratti falliscono la validazione:
 
-```
+```markdown
 Step 1: Estrazione dati dal documento
 Step 2: Validazione (Pydantic, JSON Schema, regole di business)
 Step 3: Se c’è un errore—retry con contesto:
@@ -998,11 +1021,13 @@ Errore specifico: "Field 'total' = 150, ma sum(line_items) = 145. Ricontrollare 
 ```
 
 **Quando il retry è efficace:**
+
 - Errori di formato (date nel formato errato)
 - Errori strutturali (campo posizionato nel punto sbagliato)
 - Incoerenze aritmetiche (il modello può ricalcolare)
 
 **Quando il retry NON è efficace:**
+
 - L’informazione non è presente nel documento sorgente
 - Il contesto necessario è esterno (dato in un altro documento non fornito)
 
@@ -1018,7 +1043,7 @@ Pydantic è una libreria Python per la validazione basata su schema. Per l’esa
 
 Pattern per rilevare contraddizioni interne:
 
-```json 
+```json
 {
   "stated_total": "$150.00",
   "calculated_total": "$145.00",
@@ -1028,7 +1053,7 @@ Pattern per rilevare contraddizioni interne:
     {"name": "Widget B", "price": 70.00}
   ]
 }
-``` 
+```
 
 Il modello estrae sia il valore dichiarato sia quello calcolato—se differiscono, `conflict_detected` consente di gestire esplicitamente la discrepanza.
 
@@ -1052,7 +1077,7 @@ La Message Batches API consente di inviare batch di richieste per elaborazione a
 ## 7.2 Quando usare Batch API vs API sincrona
 
 | Task | API | Motivazione |
-|---|---|---|
+| --- | --- | --- |
 | Controllo PR pre-merge | **Sincrona** | Lo sviluppatore è in attesa; 24 ore non accettabili |
 | Report tecnico notturno | **Batch** | Il risultato serve al mattino; utile il risparmio del 50% |
 | Audit di sicurezza settimanale | **Batch** | Non urgente; ottimizzazione dei costi |
@@ -1073,6 +1098,7 @@ La Message Batches API consente di inviare batch di richieste per elaborazione a
 ```  
 
 `custom_id` consente di:
+
 - Collegare il risultato al documento originale
 - In caso di errore, reinviare solo i documenti falliti
 - Evitare di rielaborare documenti già processati con successo
@@ -1101,11 +1127,12 @@ Se è necessario ottenere un risultato entro 30 ore e la Batch API può impiegar
 
 Ogni step è definito in anticipo:
 
-```
+```markdown
 Documento -> Estrazione metadata -> Estrazione dati -> Validazione -> Enrichment -> Output finale
 ```
 
 **Quando usarle:**
+
 - La struttura del task è prevedibile (le review seguono sempre lo stesso template)
 - Tutti i passaggi sono noti a priori
 - Serve stabilità e riproducibilità
@@ -1114,7 +1141,7 @@ Documento -> Estrazione metadata -> Estrazione dati -> Validazione -> Enrichment
 
 I sotto-task vengono generati in base ai risultati intermedi:
 
-```
+```markdown
 "Aggiungere test a un codebase legacy"
 -> Prima: mappare la struttura (Glob, Grep)
 -> Trovati: 3 moduli senza test, 2 con copertura parziale
@@ -1124,6 +1151,7 @@ I sotto-task vengono generati in base ai risultati intermedi:
 ```
 
 **Quando usarla:**
+
 - Task investigativi aperti
 - Quando lo scope completo non è noto a priori
 - Quando ogni step dipende dai risultati del precedente
@@ -1132,7 +1160,7 @@ I sotto-task vengono generati in base ai risultati intermedi:
 
 Per pull request con 10+ file:
 
-```
+```markdown
 Pass 1 (per file): Analisi auth.ts -> problemi locali
 Pass 1 (per file): Analisi database.ts -> problemi locali
 Pass 1 (per file): Analisi routes.ts -> problemi locali
@@ -1142,6 +1170,7 @@ Pass 2 (integrazione): analisi relazioni tra file
 ```
 
 **Perché un singolo pass su 14 file è problematico:**
+
 - Diluizione dell’attenzione: analisi approfondita su alcuni file, superficiale su altri
 - Incoerenza nelle valutazioni: pattern segnalati in un file ma ignorati in un altro
 - Bug mancati: errori evidenti non rilevati per overload cognitivo
@@ -1155,7 +1184,7 @@ Pass 2 (integrazione): analisi relazioni tra file
 **Trigger di escalation (regole esplicite):**
 
 | Situazione | Azione |
-|---|---|
+| --- | --- |
 | Il cliente chiede esplicitamente “voglio un manager” | Escalation immediata; non tentare risoluzione |
 | La policy non copre la richiesta | Escalation (es. price matching con competitor non previsto) |
 | L’agente non riesce a progredire | Escalation dopo un numero ragionevole di tentativi |
@@ -1165,7 +1194,7 @@ Pass 2 (integrazione): analisi relazioni tra file
 **Non sono trigger affidabili:**
 
 | Metodo non affidabile | Perché fallisce |
-|---|---|
+| --- | --- |
 | Analisi del sentiment | Lo stato emotivo non correlato alla complessità del caso |
 | Confidence score del modello (1–10) | Il modello può essere sicuro ma errato |
 | Classificatori automatici | Overengineering e necessità di dati di training |
@@ -1174,7 +1203,7 @@ Pass 2 (integrazione): analisi relazioni tra file
 
 **Escalation immediata:**
 
-```
+```markdown
 Cliente: "Voglio parlare con un manager"
 Agente: [chiama immediatamente escalate_to_human]
 NON: "Posso aiutarti con il tuo problema..."
@@ -1182,7 +1211,7 @@ NON: "Posso aiutarti con il tuo problema..."
 
 **Escalation dopo tentativo di risoluzione:**
 
-```
+```markdown
 Cliente: "Il frigorifero si è rotto due giorni dopo l’acquisto"
 Agente: [verifica ordine, propone sostituzione in garanzia]
 Se il cliente non è soddisfatto -> escalation
@@ -1190,7 +1219,7 @@ Se il cliente non è soddisfatto -> escalation
 
 **Escalation sfumata (acknowledge → soluzione → escalation su insistenza):**
 
-```
+```markdown
 Cliente: "Sono molto insoddisfatto della qualità!"
 Agente: [riconosce il problema] "Capisco la tua frustrazione."
 [propone soluzione] "Posso offrire sostituzione o rimborso."
@@ -1202,7 +1231,7 @@ Principio chiave: riconoscere l’emozione prima, proporre una soluzione concret
 
 **Escalation per gap di policy:**
 
-```
+```markdown
 Cliente: "Il competitor X costa il 30% in meno — applicate uno sconto"
 Policy: copre solo aggiustamenti prezzo sul proprio sito
 Agente: [escalation — la policy non copre il price matching con competitor]
@@ -1228,7 +1257,7 @@ In caso di escalation, l’agente deve trasferire a un umano un riepilogo strutt
   "recommended_action": "Approva rimborso completo",
   "escalation_reason": "Cliente ha richiesto esplicitamente un manager"
 }
-``` 
+```
 
 L’operatore umano non ha accesso all’intera conversazione: vede esclusivamente questo riepilogo. Per questo motivo deve essere completo e auto-contenuto.
 
@@ -1243,6 +1272,7 @@ Per sistemi di estrazione dati:
    - Bassa confidenza o fonti ambigue → revisione umana  
 
 **Campionamento random stratificato:**
+
 - Anche per estrazioni ad alta confidenza, effettuare audit periodici su campioni
 - Un’accuratezza media del 97% può nascondere errori del 40% su specifici tipi di documento
 - Analizzare l’accuratezza per tipo di documento e per campo, non solo in aggregato
@@ -1254,7 +1284,7 @@ Per sistemi di estrazione dati:
 ## 10.1 Categorie di errore
 
 | Categoria | Esempi | Retryable | Azione dell’agente |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | **Transiente** | Timeout, 503, errori di rete | Sì | Retry con exponential backoff |
 | **Validazione** | Formato input non valido, campo obbligatorio mancante | No (correggere input) | Modificare la richiesta e ritentare |
 | **Business** | Violazione policy, superamento soglia | No | Spiegare all’utente e proporre alternativa |
@@ -1263,7 +1293,7 @@ Per sistemi di estrazione dati:
 ## 10.2 Anti-pattern nella gestione errori
 
 | Anti-pattern | Problema | Approccio corretto |
-|---|---|---|
+| --- | --- | --- |
 | Stato generico “search unavailable” | Il coordinator non sa come recuperare | Restituire tipo errore, query, risultati parziali, alternative |
 | Soppressione silenziosa (empty = successo) | Il coordinator interpreta assenza come successo | Distinguere chiaramente “nessun risultato” da “errore di ricerca” |
 | Abort dell’intero workflow per un singolo errore | Perdita di risultati parziali | Continuare con risultati parziali e annotare i gap |
@@ -1288,6 +1318,7 @@ Per sistemi di estrazione dati:
 ```  
 
 Questo permette al coordinator di decidere in modo informato:
+
 - Ritentare con una query modificata?
 - Usare i risultati parziali?
 - Delegare a un altro subagent?
@@ -1317,7 +1348,7 @@ Questo permette al coordinator di decidere in modo informato:
 
 Invece di affidarsi alla cronologia della conversazione (che degrada durante la summarization), è necessario estrarre i fatti chiave in un blocco strutturato:
 
-```
+```markdown
 === FATTI DEL CASO (aggiornati ogni volta che emerge un nuovo fatto) ===
 Customer ID: CUST-12345
 Order ID: ORD-67890
@@ -1334,7 +1365,7 @@ Questo blocco deve essere incluso in ogni prompt, indipendentemente dalla compre
 
 Se `lookup_order` restituisce 40+ campi ma ne servono solo 5 per il task corrente:
 
-```python 
+```python
 # Hook PostToolUse: mantenere solo i campi rilevanti
 @hook("PostToolUse", tool="lookup_order")
 def trim_order_fields(result):
@@ -1371,7 +1402,7 @@ Priorità: correggere le vulnerabilità in auth.ts prima del merge.
 
 In indagini lunghe, l’agente può scrivere i risultati chiave in un file scratchpad:
 
-```
+```markdown
 investigation-scratchpad.md
 Risultati chiave
 PaymentProcessor in src/payments/processor.ts eredita da BaseProcessor
@@ -1384,7 +1415,7 @@ Quando il contesto si degrada (o in una nuova sessione), l’agente può consult
 
 ## 11.5 Delegazione a subagent per protezione del contesto
 
-```
+```markdown
 Main agent: "Analizza le dipendenze del modulo payments"
 -> Subagent (Explore): legge 15 file, traccia import
 -> Output: "Payments dipende da AuthService, OrderModel e dall’API esterna PaymentGateway"
@@ -1396,6 +1427,7 @@ Il main agent mantiene una sola riga nel contesto invece di 15 file.
 Nei sistemi multi-agent, ogni subagent opera con un budget di contesto limitato: riceve solo le informazioni necessarie al task. Il coordinator agisce come livello separato di contesto: aggrega gli output dei subagent, mantiene lo stato globale e distribuisce il contesto. Questo evita il “context leakage”, dove un agente consuma la context window con informazioni non rilevanti per gli altri.
 
 **Budget di contesto vincolato per i subagent:**
+
 - Inviare contesto minimo: task specifico + dati necessari
 - Istruire il subagent a restituire risultati strutturati, non dump di dati grezzi
 - Usare `allowedTools` per limitare gli strumenti disponibili—meno strumenti significa meno distrazioni e minore consumo di contesto
@@ -1417,7 +1449,7 @@ Ogni agente esporta il proprio stato in una posizione definita:
 
 Il coordinator carica un manifest in fase di ripresa:
 
-```json 
+```json
 {
   "web-search": "completed",
   "doc-analysis": "in_progress",
@@ -1478,7 +1510,7 @@ Non scegliere arbitrariamente un singolo valore. Conservare entrambe le misurazi
 
 Senza le date, differenze temporali possono essere interpretate erroneamente come contraddizioni:
 
-```
+```markdown
 Sbagliato: "La fonte A dice 10%, la fonte B dice 15%. Contraddizione."
 
 Corretto: "La fonte A (2023) indica 10%, la fonte B (2024) indica 15%. Probabile crescita del +5% in un anno."
@@ -1487,6 +1519,7 @@ Corretto: "La fonte A (2023) indica 10%, la fonte B (2024) indica 15%. Probabile
 ## 12.4 Rendering in base al tipo di contenuto
 
 Non forzare tutto in un unico formato:
+
 - Dati finanziari → tabelle  
 - Notizie e analisi → testo discorsivo  
 - Risultati tecnici → liste strutturate  
@@ -1499,7 +1532,7 @@ Non forzare tutto in un unico formato:
 ## 13.1 Riferimento per la selezione dei tool
 
 | Task | Tool | Esempio |
-|---|---|---|
+| --- | --- | --- |
 | Trovare file per nome/pattern | **Glob** | `**/*.test.tsx`, `src/components/**/*.ts` |
 | Cercare dentro i file | **Grep** | Nome funzione, messaggio di errore, import |
 | Leggere un file completo | **Read** | Caricare un file per analisi |
@@ -1511,7 +1544,7 @@ Non forzare tutto in un unico formato:
 
 Non leggere tutti i file insieme. Costruire la comprensione in modo progressivo:
 
-```
+```markdown
 1. Grep: trovare i punti di ingresso (definizioni di funzione, export)
 2. Read: leggere i file individuati
 3. Grep: trovare gli utilizzi (import, chiamate)
@@ -1537,38 +1570,44 @@ Quando `Edit` fallisce per match non univoco:
 
 ## 1.1 Progettazione di agentic loop per l’esecuzione autonoma dei task
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - Ciclo di vita dell’agent loop: inviare una richiesta a Claude, verificare `stop_reason` (`"tool_use"` vs `"end_turn"`), eseguire i tool, reinserire i risultati per l’iterazione successiva
 - I risultati dei tool vengono aggiunti alla history della conversazione, consentendo al modello di decidere l’azione successiva
 - Decisione guidata dal modello (Claude seleziona il prossimo tool) vs logiche deterministiche hard-coded
 
-### Competenze chiave:
+### Competenze chiave
+
 - Controllo del flusso: continuare il loop quando `stop_reason = "tool_use"` e terminare su `"end_turn"`
 - Aggiunta dei risultati dei tool al contesto tra un’iterazione e la successiva
 - Anti-pattern da evitare: parsing del testo dell’assistant per determinare la fine, uso di limiti arbitrari di iterazioni come meccanismo primario di stop
 
 ## 1.2 Orchestrazione di sistemi multi-agent (Coordinator–Subagent)
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - Architettura hub-and-spoke: il coordinator gestisce tutta la comunicazione tra agenti, l’error handling e il routing
 - I subagent operano con contesto isolato: non ereditano automaticamente la history del coordinator
 - Responsabilità del coordinator: decomposizione del task, delega, aggregazione dei risultati, selezione dinamica dei subagent
 - Rischio di decomposizione eccessivamente frammentata da parte del coordinator
 
-### Competenze chiave:
+### Competenze chiave
+
 - Suddividere la copertura di ricerca tra subagent per minimizzare duplicazioni
 - Implementare loop di raffinamento iterativo (il coordinator valuta la sintesi e rialloca i task)
 - Instradare tutta la comunicazione attraverso il coordinator per garantire osservabilità
 
 ## 1.3 Configurazione delle chiamate ai subagent, context passing e spawning
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - Il tool `Task` permette di spawnare subagent; `allowedTools` del coordinator deve includere `"Task"`
 - Il contesto del subagent deve essere passato esplicitamente nel prompt; non esiste inheritance automatica
 - Configurazione `AgentDefinition`: descrizioni, system prompt, vincoli sui tool
 - Gestione sessioni tramite `fork_session` per esplorare alternative
 
-### Competenze chiave:
+### Competenze chiave
+
 - Includere output completi di agent precedenti nel prompt del subagent
 - Usare formati strutturati per separare dati e metadata nel context passing
 - Avviare subagent in parallelo tramite più chiamate `Task` in una singola iterazione del coordinator
@@ -1576,49 +1615,57 @@ Quando `Edit` fallisce per match non univoco:
 
 ## 1.4 Implementazione di workflow multi-step con enforcement e pattern di handoff
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - Differenza tra **enforcement programmatico** (hooks, precondizioni) e guida tramite prompt per l’ordinamento di un workflow
 - Quando sono necessarie garanzie deterministiche (es. verifica identità prima di operazioni finanziarie), i prompt non sono sufficienti
 - Protocolli strutturati di handoff durante l’escalation (customer ID, motivo, azione raccomandata)
 
-### Competenze chiave:
+### Competenze chiave
+
 - Precondizioni programmatiche che bloccano le chiamate downstream finché gli step precedenti non sono completati (es. bloccare `process_refund` finché `get_customer` non restituisce un ID verificato)
 - Scomposizione di richieste multi-aspetto del cliente in elementi separati
 - Produzione di summary strutturati durante l’escalation verso un operatore umano
 
 ## 1.5 Hook dell’Agent SDK per intercettazione chiamate tool e normalizzazione dati
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - Pattern di hook (es. `PostToolUse`) per intercettare i risultati dei tool prima che vengano consumati dal modello
 - Hook che intercettano chiamate in uscita per imporre regole di compliance (es. blocco rimborsi sopra una soglia)
 - Gli hook forniscono **garanzie deterministiche**, mentre le istruzioni nei prompt forniscono **compliance probabilistica**
 
-### Competenze chiave:
+### Competenze chiave
+
 - `PostToolUse` hook per normalizzare formati dati (timestamp Unix, ISO 8601, codici numerici di stato)
 - Hook di intercettazione per bloccare azioni non conformi alle policy e reindirizzare verso escalation
 - Uso degli hook al posto dei prompt quando le regole di business richiedono enforcement garantito
 
 ## 1.6 Strategie di decomposizione dei task per workflow complessi
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - **Pipeline fisse** (prompt chaining) vs **decomposizione dinamica adattiva** basata su risultati intermedi
 - Prompt chaining: sequenze deterministiche (analisi file per file, poi fase di integrazione)
 - Piani di investigazione adattivi che generano sotto-task in base ai risultati emersi
 
-### Competenze chiave:
+### Competenze chiave
+
 - Usare prompt chaining per review multi-aspetto prevedibili; usare decomposizione dinamica per investigazioni aperte
 - Suddividere code review ampie in analisi per file + passaggio finale di integrazione cross-file
 - Decomporre task esplorativi: prima mappare la struttura, poi costruire un piano prioritizzato
 
 ## 1.7 Stato di sessione, resume e fork
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - `--resume <session-name>` per continuare sessioni nominate
 - `fork_session` per creare branch indipendenti di investigazione a partire da un contesto condiviso
 - Importanza di informare l’agente quando i file sono cambiati durante il resume di una sessione
 - Una nuova sessione con un riepilogo strutturato può essere più affidabile rispetto al ripristino di una sessione con risultati obsoleti
 
-### Competenze chiave:
+### Competenze chiave
+
 - Usare `--resume` per continuare sessioni di investigazione nominate
 - Usare `fork_session` per confrontare approcci in parallelo
 - Scegliere tra resume (contesto ancora valido) e nuova sessione (risultati obsoleti o degradati)
@@ -1629,26 +1676,30 @@ Quando `Edit` fallisce per match non univoco:
 
 ## 2.1 Progettare Interfacce di Strumenti con Descrizioni Chiare
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - Le descrizioni degli strumenti sono il **meccanismo principale** che un LLM utilizza per selezionare gli strumenti; descrizioni minimali portano a una selezione poco affidabile.
 - L'importanza di includere formati di input, esempi di query, casi limite ed eventuali limiti di applicabilità.
 - Descrizioni ambigue o sovrapposte causano instradamenti errati.
 - La formulazione del prompt di sistema può creare associazioni indesiderate con determinati strumenti.
 
-### Competenze chiave:
+### Competenze chiave
+
 - Scrivere descrizioni che distinguano chiaramente ogni strumento da alternative simili.
 - Rinominare gli strumenti per eliminare sovrapposizioni funzionali (ad esempio, `analyze_content` → `extract_web_results`).
 - Suddividere strumenti generici in strumenti specializzati con contratti di input/output ben definiti.
 
 ## 2.2 Implementare Risposte di Errore Strutturate per gli Strumenti MCP
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - Il flag `isError` nelle risposte degli strumenti MCP.
 - La differenza tra **errori transitori** (timeout), **errori di validazione** (input non valido), **errori di business** (violazioni delle policy) ed **errori di accesso/autorizzazione**.
 - Errori generici ("Operazione non riuscita") impediscono di prendere decisioni corrette sul recupero dell'errore.
 - La differenza tra errori recuperabili tramite nuovo tentativo (retryable) e non recuperabili.
 
-### Competenze chiave:
+### Competenze chiave
+
 - Restituire metadati strutturati come `errorCategory` (transient/validation/permission), `isRetryable` e un messaggio leggibile dall'utente.
 - Utilizzare `retryable: false` per violazioni delle regole di business, accompagnandolo con spiegazioni chiare rivolte all'utente.
 - Gestire il recupero locale all'interno dei sottoagenti in caso di errori transitori; propagare solo gli errori che non possono essere risolti autonomamente.
@@ -1656,13 +1707,15 @@ Quando `Edit` fallisce per match non univoco:
 
 ## 2.3 Assegnare gli Strumenti agli Agenti e Configurare `tool_choice`
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - Un numero eccessivo di strumenti per agente (ad esempio 18 invece di 4–5) **riduce** l'affidabilità della selezione degli strumenti.
 - Gli agenti che dispongono di strumenti al di fuori della propria specializzazione tendono a utilizzarli in modo improprio.
 - Accesso limitato agli strumenti (scoped tool access): solo strumenti pertinenti al ruolo, più un insieme ristretto di utility condivise tra ruoli.
 - `tool_choice`: `"auto"`, `"any"` e selezione forzata di uno strumento (`{"type": "tool", "name": "..."}`).
 
-### Competenze chiave:
+### Competenze chiave
+
 - Limitare il set di strumenti di ogni sottoagente a quelli rilevanti per il suo ruolo.
 - Sostituire strumenti generici con alternative più vincolate (ad esempio, `fetch_url` → `load_document`).
 - Utilizzare `tool_choice: "any"` per garantire una chiamata a uno strumento invece di ottenere una risposta testuale.
@@ -1670,26 +1723,30 @@ Quando `Edit` fallisce per match non univoco:
 
 ## 2.4 Integrare Server MCP in Claude Code e nei Flussi di Lavoro degli Agenti
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - Ambito dei server MCP: progetto (`.mcp.json`) per i team, utente (`~/.claude.json`) per esperimenti personali.
 - Sostituzione delle variabili d'ambiente in `.mcp.json` (ad esempio `${GITHUB_TOKEN}`) per la gestione dei segreti e delle credenziali.
 - Gli strumenti provenienti da tutti i server MCP connessi vengono rilevati al momento della connessione e sono disponibili simultaneamente.
 - Le risorse MCP come "cataloghi di contenuti" (riepiloghi di attività, schemi di database) riducono la necessità di chiamate esplorative agli strumenti.
 
-### Competenze chiave:
+### Competenze chiave
+
 - Configurare server MCP condivisi nel file `.mcp.json` del progetto utilizzando token basati su variabili d'ambiente.
 - Mantenere i server personali o sperimentali nel file `~/.claude.json`.
 - Preferire server MCP della community rispetto a server personalizzati per le integrazioni standard.
 
 ## 2.5 Selezionare e Utilizzare gli Strumenti Integrati (Read, Write, Edit, Bash, Grep, Glob)
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - **Grep**: ricerca all'interno del contenuto dei file (nomi di funzioni, messaggi di errore, importazioni).
 - **Glob**: ricerca di file tramite pattern di nomi o estensioni.
 - **Read/Write**: operazioni sull'intero file; **Edit**: modifiche mirate tramite corrispondenze di testo univoche.
 - Se Edit fallisce a causa di corrispondenze non univoche, utilizzare Read + Write come alternativa.
 
-### Competenze chiave:
+### Competenze chiave
+
 - Utilizzare Grep per la ricerca nei contenuti e Glob per individuare file tramite pattern.
 - Costruire la comprensione del codice in modo incrementale: usare prima Grep per individuare i punti di ingresso, poi Read per seguire il flusso di esecuzione.
 - Tracciare l'utilizzo delle funzioni attraverso moduli wrapper.
@@ -1700,26 +1757,30 @@ Quando `Edit` fallisce per match non univoco:
 
 ## 3.1 Configurare CLAUDE.md con Gerarchia, Ambito e Organizzazione Modulare
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - Gerarchia di CLAUDE.md: livello utente (`~/.claude/CLAUDE.md`), livello progetto (`.claude/CLAUDE.md` oppure `CLAUDE.md` nella root del progetto) e livello directory (file `CLAUDE.md` nelle sottodirectory).
 - Le impostazioni a livello utente si applicano soltanto a un singolo utente e non vengono condivise tramite il sistema di controllo versione (VCS).
 - Sintassi `@path` per fare riferimento a file esterni (ad esempio `@./standards/coding-style.md`) e modularizzare il contenuto di CLAUDE.md.
 - La directory `.claude/rules/` per organizzare regole specifiche per argomento invece di utilizzare un unico CLAUDE.md monolitico.
 
-### Competenze chiave:
+### Competenze chiave
+
 - Diagnosticare problemi di gerarchia (ad esempio, un nuovo membro del team non riceve determinate istruzioni perché sono definite a livello utente anziché a livello progetto).
 - Utilizzare `@path` (ad esempio `@./standards/testing.md`) per includere selettivamente gli standard appropriati nel file CLAUDE.md di ciascun pacchetto.
 - Suddividere un CLAUDE.md di grandi dimensioni in più file all'interno di `.claude/rules/` (ad esempio `testing.md`, `api-conventions.md`, `deployment.md`).
 
 ## 3.2 Creare e Configurare Comandi Slash Personalizzati e Skill
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - **Comandi di progetto** nella directory `.claude/commands/` (condivisi tramite VCS) rispetto ai **comandi utente** in `~/.claude/commands/`.
 - Skill archiviate in `.claude/skills/` con frontmatter in `SKILL.md`: `context: fork`, `allowed-tools`, `argument-hint`.
 - `context: fork` esegue la skill in un contesto isolato di sottoagente, evitando che influenzi o "inquini" la sessione principale.
 - Varianti personali delle skill possono essere conservate in `~/.claude/skills/` con nomi differenti.
 
-### Competenze chiave:
+### Competenze chiave
+
 - Salvare i comandi slash di progetto nella directory `.claude/commands/` affinché siano disponibili a tutto il team.
 - Utilizzare `context: fork` per isolare skill che producono output molto verboso.
 - Utilizzare `allowed-tools` per limitare gli strumenti che una skill può utilizzare.
@@ -1727,25 +1788,29 @@ Quando `Edit` fallisce per match non univoco:
 
 ## 3.3 Utilizzare Regole Specifiche per Percorso per il Caricamento Condizionale delle Convenzioni
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - I file presenti in `.claude/rules/` possono includere un frontmatter YAML con il campo `paths` per attivare regole in base a pattern glob.
 - Le regole limitate a specifici percorsi vengono caricate **solo** quando si modificano file corrispondenti, riducendo il consumo di contesto e token.
 - Le regole basate su pattern glob possono essere preferibili rispetto a CLAUDE.md a livello di directory quando le convenzioni si applicano a molte directory diverse (ad esempio ai test).
 
-### Competenze chiave:
+### Competenze chiave
+
 - Creare file in `.claude/rules/` con `paths: ["terraform/**/*"]` per caricare le regole solo quando si lavora su file corrispondenti.
 - Utilizzare pattern glob (ad esempio `**/*.test.tsx`) per applicare convenzioni in base al tipo di file indipendentemente dalla loro posizione.
 - Preferire regole specifiche per percorso rispetto a CLAUDE.md a livello di directory quando le convenzioni si estendono a tutto il codebase.
 
 ## 3.4 Decidere Quando Utilizzare la Modalità di Pianificazione rispetto all'Esecuzione Diretta
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - **Modalità di pianificazione (Planning mode)**: adatta a compiti complessi che comportano modifiche estese, più approcci possibili e decisioni architetturali.
 - **Esecuzione diretta (Direct execution)**: adatta a modifiche semplici e ben comprese (ad esempio l'aggiunta di una singola validazione).
 - La modalità di pianificazione consente di esplorare in sicurezza il codebase prima di apportare modifiche.
 - Il sottoagente Explore isola l'output dettagliato dell'attività di esplorazione.
 
-### Competenze chiave:
+### Competenze chiave
+
 - Utilizzare la modalità di pianificazione per attività con implicazioni architetturali (microservizi, migrazioni che coinvolgono oltre 45 file).
 - Utilizzare l'esecuzione diretta per correzioni supportate da uno stack trace chiaro e che coinvolgono un solo file.
 - Utilizzare il sottoagente Explore per evitare l'esaurimento della finestra di contesto nelle attività suddivise in più fasi.
@@ -1753,13 +1818,15 @@ Quando `Edit` fallisce per match non univoco:
 
 ## 3.5 Perfezionamento Iterativo per il Miglioramento Progressivo
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - Esempi concreti di input e output rappresentano il modo più efficace per comunicare le aspettative.
 - **Iterazione guidata dai test (Test-driven iteration)**: scrivere prima i test e poi iterare in base agli errori e ai fallimenti riscontrati.
 - Il modello dell'“intervista” (interview pattern): Claude pone domande per far emergere considerazioni progettuali non immediatamente evidenti.
 - Quando presentare tutti i problemi in un unico messaggio (se interdipendenti) rispetto a presentarli in modo sequenziale (se indipendenti).
 
-### Competenze chiave:
+### Competenze chiave
+
 - Fornire 2–3 esempi concreti di input/output per chiarire i requisiti di una trasformazione.
 - Costruire set di test che includano comportamento atteso, casi limite e requisiti prestazionali prima dell'implementazione.
 - Utilizzare il modello dell'intervista per far emergere aspetti progettuali rilevanti (invalidazione della cache, modalità di errore, ecc.).
@@ -1767,13 +1834,15 @@ Quando `Edit` fallisce per match non univoco:
 
 ## 3.6 Integrare Claude Code nelle Pipeline CI/CD
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - Il flag `-p` (oppure `--print`) per l'esecuzione in modalità non interattiva all'interno di pipeline automatizzate.
 - `--output-format json` e `--json-schema` per ottenere output strutturati nei processi CI.
 - CLAUDE.md fornisce il contesto del progetto (standard di testing, criteri di revisione) alle esecuzioni di Claude Code avviate dalla CI.
 - **Isolamento del contesto di sessione**: la stessa sessione che ha generato il codice è generalmente meno efficace nel revisionarlo rispetto a un'istanza indipendente.
 
-### Competenze chiave:
+### Competenze chiave
+
 - Eseguire Claude Code in CI utilizzando `-p` per evitare blocchi dovuti alla richiesta di input interattivi.
 - Utilizzare `--output-format json` insieme a `--json-schema` per produrre risultati strutturati (ad esempio commenti inline nelle pull request).
 - Includere i risultati delle revisioni precedenti quando si riesegue l'analisi dopo nuovi commit (segnalando solo i problemi nuovi o non ancora risolti).
@@ -1786,25 +1855,29 @@ Quando `Edit` fallisce per match non univoco:
 
 ## 4.1 Progettare Prompt con Criteri Espliciti per Migliorare l'Accuratezza
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - I criteri espliciti sono più efficaci delle istruzioni vaghe (ad esempio, “segnala i commenti solo quando contraddicono il codice” invece di “verifica l'accuratezza dei commenti”).
 - Indicazioni generiche come “sii più conservativo” funzionano peggio rispetto a criteri concreti e categorizzati.
 - L'effetto dei falsi positivi sulla fiducia degli sviluppatori: tassi elevati di falsi positivi in alcune categorie compromettono la fiducia anche nelle categorie in cui le segnalazioni sono accurate.
 
-### Competenze chiave:
+### Competenze chiave
+
 - Definire criteri di revisione chiari: cosa segnalare (bug, vulnerabilità di sicurezza) e cosa ignorare (piccoli problemi di stile).
 - Disattivare temporaneamente le categorie che presentano un alto tasso di falsi positivi.
 - Definire criteri di gravità espliciti corredati da esempi di codice per ciascun livello.
 
 ## 4.2 Utilizzare il Few-shot Prompting per Migliorare la Coerenza dell'Output
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - Gli esempi few-shot rappresentano il metodo più efficace per ottenere output coerenti, formattati correttamente e immediatamente utilizzabili.
 - Il few-shot può mostrare come gestire casi ambigui (selezione degli strumenti, lacune nella copertura dei test).
 - Il few-shot aiuta il modello a generalizzare nuovi schemi invece di limitarsi a ripetere comportamenti predefiniti.
 - Il few-shot può ridurre le allucinazioni nei compiti di estrazione delle informazioni.
 
-### Competenze chiave:
+### Competenze chiave
+
 - Fornire da 2 a 4 esempi mirati per scenari ambigui, includendo anche la motivazione delle scelte effettuate.
 - Includere esempi few-shot che mostrino chiaramente il formato dell'output (posizione, problema, gravità, correzione suggerita).
 - Fornire esempi che distinguano pattern di codice accettabili da problemi reali.
@@ -1812,13 +1885,15 @@ Quando `Edit` fallisce per match non univoco:
 
 ## 4.3 Applicare Output Strutturati con `tool_use` e Schemi JSON
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - L'utilizzo di `tool_use` con schemi JSON è il metodo più affidabile per garantire output conformi allo schema ed eliminare errori di sintassi JSON.
 - Con `tool_choice: "auto"` il modello può restituire testo libero; con `"any"` deve necessariamente chiamare uno strumento; la selezione forzata impone l'uso di uno strumento specifico.
 - Schemi JSON rigorosi eliminano gli errori sintattici, ma non quelli semantici (totali incoerenti, valori inseriti nel campo sbagliato).
 - Progettazione degli schemi: campi obbligatori e facoltativi; enum con valori come `"other"` accompagnati da un campo descrittivo per garantire l'estensibilità.
 
-### Competenze chiave:
+### Competenze chiave
+
 - Definire strumenti di estrazione basati su schemi JSON e analizzare i dati restituiti dai risultati di `tool_use`.
 - Utilizzare `tool_choice: "any"` per garantire un output strutturato quando sono disponibili più schemi.
 - Forzare la chiamata di uno strumento specifico: `tool_choice: {"type": "tool", "name": "extract_metadata"}`.
@@ -1827,13 +1902,15 @@ Quando `Edit` fallisce per match non univoco:
 
 ## 4.4 Implementare Validazione, Retry e Cicli di Feedback per Migliorare la Qualità dell'Estrazione
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - Retry con feedback sugli errori (retry-with-error-feedback): includere nel prompt di retry errori di validazione concreti per guidare la correzione.
 - I tentativi ripetuti sono inefficaci quando l'informazione richiesta semplicemente non è presente nella fonte.
 - Progettazione dei cicli di feedback: tracciare il pattern che ha generato una segnalazione (`detected_pattern`).
 - Errori semantici (totali non coerenti) rispetto a errori sintattici (già gestiti tramite `tool_use`).
 
-### Competenze chiave:
+### Competenze chiave
+
 - Creare prompt di follow-up che includano il documento originale, un'estrazione errata e specifici errori di validazione.
 - Riconoscere quando un nuovo tentativo sarà inefficace (ad esempio quando le informazioni richieste sono disponibili solo in un documento esterno).
 - Includere campi `detected_pattern` nelle segnalazioni per analizzare i falsi positivi.
@@ -1841,13 +1918,15 @@ Quando `Edit` fallisce per match non univoco:
 
 ## 4.5 Progettare Strategie Efficienti di Elaborazione Batch
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - API Message Batches: riduzione dei costi del 50%, finestra di elaborazione fino a 24 ore e assenza di garanzie SLA sulla latenza.
 - L'elaborazione batch è adatta a attività non bloccanti (report notturni, audit) e non è adatta a attività bloccanti (controlli pre-merge).
 - L'API Batch non supporta chiamate a strumenti multi-turn all'interno della stessa richiesta.
 - I campi `custom_id` consentono di correlare richieste e risposte all'interno dei batch.
 
-### Competenze chiave:
+### Competenze chiave
+
 - Utilizzare l'API sincrona per controlli bloccanti e l'API Batch per carichi di lavoro notturni o settimanali.
 - Pianificare la frequenza di invio dei batch in base ai requisiti SLA (ad esempio finestre di 4 ore per garantire una copertura operativa di 30 ore con un tempo di elaborazione massimo di 24 ore).
 - Gestire i fallimenti reinviando soltanto i documenti che hanno generato errori (identificati tramite `custom_id`).
@@ -1855,12 +1934,14 @@ Quando `Edit` fallisce per match non univoco:
 
 ## 4.6 Progettare Architetture di Revisione Multi-Istanza e Multi-Passaggio
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - Limiti dell'autorevisione (self-review): il modello mantiene il proprio contesto di ragionamento ed è meno incline a mettere in discussione le proprie decisioni.
 - Le istanze di revisione indipendenti (prive del contesto di generazione) sono più efficaci nell'individuare problemi sottili.
 - Revisione multi-passaggio (multi-pass review): analisi locale per singolo file seguita da una fase di integrazione tra file per evitare la dispersione dell'attenzione.
 
-### Competenze chiave:
+### Competenze chiave
+
 - Utilizzare una seconda istanza indipendente di Claude per revisionare le modifiche senza il contesto della generazione originale.
 - Suddividere le revisioni che coinvolgono più file in passaggi per singolo file, seguiti da passaggi di integrazione per analizzare i flussi di dati tra file.
 - Utilizzare passaggi di verifica con autovalutazione del livello di confidenza per instradare le revisioni in modo calibrato e coerente.
@@ -1871,13 +1952,15 @@ Quando `Edit` fallisce per match non univoco:
 
 ## 5.1 Gestire il Contesto della Conversazione per Preservare le Informazioni Critiche
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - Rischi della sintesi progressiva (progressive summarization): valori numerici, percentuali e date tendono a essere condensati in riepiloghi vaghi.
 - Effetto "lost-in-the-middle": i modelli elaborano in modo affidabile l'inizio e la fine di input molto lunghi, ma possono trascurare informazioni presenti nella parte centrale.
 - Gli output degli strumenti possono accumularsi nel contesto in modo sproporzionato rispetto alla loro rilevanza (ad esempio oltre 40 campi quando ne servono solo 5).
 - L'importanza di inviare l'intera cronologia della conversazione nelle richieste API successive.
 
-### Competenze chiave:
+### Competenze chiave
+
 - Estrarre i fatti transazionali in un blocco persistente di "case facts" separato dalla cronologia sintetizzata.
 - Ridurre gli output verbosi degli strumenti mantenendo solo i campi rilevanti.
 - Posizionare le informazioni chiave all'inizio dei dati aggregati utilizzando intestazioni di sezione esplicite.
@@ -1885,13 +1968,15 @@ Quando `Edit` fallisce per match non univoco:
 
 ## 5.2 Progettare Modelli di Escalation Efficaci e Risolvere le Ambiguità
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - Trigger appropriati per l'escalation: richiesta esplicita di un operatore umano, lacune o eccezioni nelle policy, impossibilità di progredire nella risoluzione del problema.
 - Escalation immediata (richiesta esplicita di un umano) rispetto a tentativi di risoluzione autonoma (quando rientrano nell'ambito dell'agente).
 - L'analisi del sentiment e le autovalutazioni del livello di confidenza del modello sono indicatori poco affidabili della complessità di un caso.
 - In presenza di più corrispondenze possibili per un cliente, è necessario richiedere identificatori aggiuntivi anziché affidarsi a supposizioni euristiche.
 
-### Competenze chiave:
+### Competenze chiave
+
 - Definire criteri di escalation espliciti nel prompt di sistema, corredati da esempi few-shot.
 - Eseguire immediatamente le richieste esplicite di assistenza umana senza effettuare ulteriori indagini.
 - Attivare l'escalation quando la policy è ambigua o non fornisce indicazioni per una richiesta specifica.
@@ -1899,13 +1984,15 @@ Quando `Edit` fallisce per match non univoco:
 
 ## 5.3 Implementare Strategie di Propagazione degli Errori nei Sistemi Multiagente
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - Un contesto di errore strutturato (tipo di errore, query eseguita, risultati parziali, alternative possibili) consente al coordinatore di adottare strategie di recupero più intelligenti.
 - È importante distinguere i problemi di accesso (ad esempio timeout che richiedono una decisione sul retry) dai risultati validamente vuoti (nessuna corrispondenza trovata).
 - Stati di errore generici ("ricerca non disponibile") nascondono informazioni preziose al coordinatore.
 - Sopprimere silenziosamente gli errori o interrompere l'intero workflow a causa di un singolo fallimento sono entrambi anti-pattern.
 
-### Competenze chiave:
+### Competenze chiave
+
 - Restituire un contesto di errore strutturato che includa: tipo di errore, operazione tentata, risultati parziali e possibili alternative.
 - Distinguere chiaramente i problemi di accesso dai risultati validamente vuoti.
 - Effettuare il recupero locale nei sottoagenti per errori transitori; propagare soltanto gli errori non recuperabili insieme agli eventuali risultati parziali.
@@ -1913,13 +2000,15 @@ Quando `Edit` fallisce per match non univoco:
 
 ## 5.4 Gestire il Contesto in Modo Efficiente Durante l'Analisi di Codebase di Grandi Dimensioni
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - Degrado del contesto nelle sessioni lunghe: il modello inizia a produrre risposte meno stabili e a fare riferimento a "pattern tipici" invece che a classi o componenti specifici.
 - I file scratchpad consentono di preservare le scoperte e le informazioni chiave oltre i limiti del contesto disponibile.
 - La delega ai sottoagenti permette di isolare l'output dettagliato delle attività di esplorazione.
 - La persistenza strutturata dello stato consente il recupero del lavoro in caso di interruzioni o crash.
 
-### Competenze chiave:
+### Competenze chiave
+
 - Creare sottoagenti dedicati a domande specifiche mantenendo il coordinamento generale nell'agente principale.
 - Utilizzare file scratchpad per memorizzare le scoperte principali e farvi riferimento successivamente.
 - Riassumere le informazioni chiave prima di avviare sottoagenti per le fasi successive dell'analisi.
@@ -1927,13 +2016,15 @@ Quando `Edit` fallisce per match non univoco:
 
 ## 5.5 Progettare Workflow con Supervisione Umana e Calibrazione della Confidenza
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - Le metriche aggregate (ad esempio il 97% di accuratezza complessiva) possono nascondere prestazioni scarse su specifici tipi di documenti o campi.
 - Il campionamento casuale stratificato (stratified random sampling) consente di misurare i tassi di errore anche nelle estrazioni ad alta confidenza.
 - Calibrazione della confidenza a livello di campo tramite set di validazione etichettati.
 - Prima di automatizzare un processo, è necessario validarne l'accuratezza per tipologia di documento e segmento di dati.
 
-### Competenze chiave:
+### Competenze chiave
+
 - Implementare il campionamento casuale stratificato per individuare nuovi pattern di errore.
 - Analizzare l'accuratezza per tipologia di documento e per campo, verificando che le prestazioni rimangano stabili.
 - Generare punteggi di confidenza a livello di singolo campo e calibrare le soglie di revisione utilizzando dati etichettati.
@@ -1941,13 +2032,15 @@ Quando `Edit` fallisce per match non univoco:
 
 ## 5.6 Preservare la Provenienza delle Informazioni e Gestire l'Incertezza nella Sintesi da Più Fonti
 
-### Conoscenze chiave:
+### Conoscenze chiave
+
 - L'attribuzione delle informazioni viene persa durante la sintesi se non vengono mantenute le associazioni "affermazione → fonte".
 - Le associazioni strutturate tra affermazioni e fonti devono essere preservate durante l'aggregazione.
 - In presenza di statistiche contrastanti, è necessario annotare il conflitto con le relative attribuzioni invece di scegliere arbitrariamente un valore.
 - Includere le date di pubblicazione o raccolta dei dati evita di interpretare erroneamente differenze temporali come contraddizioni.
 
-### Competenze chiave:
+### Competenze chiave
+
 - Richiedere ai sottoagenti di produrre associazioni "affermazione → fonte" (URL, nome del documento, citazioni).
 - Strutturare i report separando chiaramente i risultati consolidati da quelli controversi o contestati.
 - Conservare valori contrastanti con annotazioni esplicative e inoltrarli al coordinatore per la riconciliazione.
@@ -3307,6 +3400,7 @@ Quando `Edit` fallisce per match non univoco:
 **Obiettivo:** Progettare un ciclo agente con integrazione degli strumenti, gestione strutturata degli errori ed escalation.
 
 **Passaggi:**
+
 1. Definire 3–4 strumenti MCP con descrizioni dettagliate (includere due strumenti simili per testare la selezione degli strumenti).
 2. Implementare un ciclo agente che controlli `stop_reason` (`"tool_use"` / `"end_turn"`).
 3. Aggiungere risposte di errore strutturate: `errorCategory`, `isRetryable`, descrizione.
@@ -3322,6 +3416,7 @@ Quando `Edit` fallisce per match non univoco:
 **Obiettivo:** Configurare CLAUDE.md, comandi personalizzati, regole specifiche per percorso e server MCP.
 
 **Passaggi:**
+
 1. Creare un CLAUDE.md a livello progetto con standard universali.
 2. Creare file in `.claude/rules/` con frontmatter YAML per diverse aree del codice (`paths: ["src/api/**/*"]`, `paths: ["**/*.test.*"]`).
 3. Creare una skill di progetto in `.claude/skills/` con `context: fork` e `allowed-tools`.
@@ -3337,6 +3432,7 @@ Quando `Edit` fallisce per match non univoco:
 **Obiettivo:** Schemi JSON, `tool_use` per output strutturato, cicli di validazione/retry, elaborazione batch.
 
 **Passaggi:**
+
 1. Definire uno strumento di estrazione con schema JSON (campi obbligatori/facoltativi, enum con `"other"`, campi nullable).
 2. Costruire un ciclo di validazione: in caso di errore, riprovare includendo il documento, l'estrazione errata e lo specifico errore di validazione.
 3. Aggiungere esempi few-shot per documenti con strutture diverse.
@@ -3352,6 +3448,7 @@ Quando `Edit` fallisce per match non univoco:
 **Obiettivo:** Orchestrazione dei sottoagenti, passaggio del contesto, propagazione degli errori, sintesi con tracciamento delle fonti.
 
 **Passaggi:**
+
 1. Un coordinatore con 2+ sottoagenti (`allowedTools` include `"Task"`, il contesto viene passato esplicitamente nei prompt).
 2. Eseguire i sottoagenti in parallelo tramite più chiamate `Task` in una singola risposta.
 3. Richiedere output strutturato dai sottoagenti: affermazione, citazione, URL della fonte, data di pubblicazione.
