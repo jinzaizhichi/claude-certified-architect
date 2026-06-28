@@ -46,6 +46,22 @@ This repository contains study materials for the **Claude Certified Architect â€
 - **Vietnamese guide**: [`guide_vi.pdf`](./pdf/guide_vi.pdf)
 - **Turkish guide**: [`guide_tr.pdf`](./pdf/guide_tr.pdf)
 
+## EPUB Version
+
+- **English guide**: [`guide_en.epub`](./epub/guide_en.epub)
+- **Spanish guide**: [`guide_es.epub`](./epub/guide_es.epub)
+- **Russian guide**: [`guide_ru.epub`](./epub/guide_ru.epub)
+- **Chinese guide**: [`guide_zh.epub`](./epub/guide_zh.epub)
+- **Japanese guide**: [`guide_ja.epub`](./epub/guide_ja.epub)
+- **Urdu guide**: [`guide_ur.epub`](./epub/guide_ur.epub)
+- **Arabic guide**: [`guide_ar.epub`](./epub/guide_ar.epub)
+- **Hebrew guide**: [`guide_he.epub`](./epub/guide_he.epub)
+- **Korean guide**: [`guide_ko.epub`](./epub/guide_ko.epub)
+- **Italian guide**: [`guide_it.epub`](./epub/guide_it.epub)
+- **Traditional Chinese (Taiwan) guide**: [`guide_zh-tw.epub`](./epub/guide_zh-tw.epub)
+- **Vietnamese guide**: [`guide_vi.epub`](./epub/guide_vi.epub)
+- **Turkish guide**: [`guide_tr.epub`](./epub/guide_tr.epub)
+
 ## How to Use
 
 - Read the guide that matches your preferred language.

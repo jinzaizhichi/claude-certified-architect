@@ -1,0 +1,53 @@
+name: Build Guide Markdown to EPUB and Commit
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-epub:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+
+      - name: Convert guide_*.md to EPUB
+        run: |
+          export LC_ALL=C.UTF-8
+          mkdir -p epub
+          shopt -s nullglob nocaseglob
+          for file in guide_*.md; do
+            echo "Processing $file"
+            # Extract title from first H1 or filename
+            TITLE=$(grep -m 1 '^# ' "$file" | sed 's/^# //')
+            if [ -z "$TITLE" ]; then
+              TITLE="${file%.*}"
+            fi
+            # Use -f markdown-yaml_metadata_block to avoid issues with --- in some files
+            pandoc "$file" -o "epub/${file%.*}.epub" -f markdown-yaml_metadata_block --metadata title="$TITLE" --css .github/workflows/epub-style.css
+          done
+
+      - name: Commit EPUBs back to repo
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add epub/*.epub
+          if ! git diff --cached --quiet; then
+            git commit -m "Update guide EPUBs [skip ci]"
+            git push https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:${{ github.ref_name }}
+          else
+            echo "No changes in EPUBs, skipping commit."
+          fi
