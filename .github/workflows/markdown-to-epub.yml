@@ -9,6 +9,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: guide-commit-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   build-epub:
     runs-on: ubuntu-latest
@@ -16,6 +20,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install pandoc
         run: |
@@ -47,7 +53,20 @@ jobs:
           git add epub/*.epub
           if ! git diff --cached --quiet; then
             git commit -m "Update guide EPUBs [skip ci]"
-            git push https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:${{ github.ref_name }}
+            REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+            BRANCH="${{ github.ref_name }}"
+            for attempt in 1 2 3 4 5; do
+              if git push "$REMOTE" "HEAD:${BRANCH}"; then
+                echo "Push succeeded on attempt $attempt"
+                exit 0
+              fi
+              echo "Push rejected on attempt $attempt; rebasing onto latest ${BRANCH}"
+              git fetch "$REMOTE" "${BRANCH}"
+              git rebase "FETCH_HEAD"
+              sleep $((attempt * 2))
+            done
+            echo "Push failed after retries" >&2
+            exit 1
           else
             echo "No changes in EPUBs, skipping commit."
           fi
