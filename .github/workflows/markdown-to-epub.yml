@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'guide_*.md'
 
 permissions:
   contents: write
