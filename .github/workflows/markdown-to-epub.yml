@@ -7,6 +7,7 @@ on:
       - main
     paths:
       - 'guide_*.md'
+      - '.github/workflows/*epub*'
 
 permissions:
   contents: write
@@ -41,7 +42,7 @@ jobs:
               TITLE="${file%.*}"
             fi
             # Use -f markdown-yaml_metadata_block to avoid issues with --- in some files
-            pandoc "$file" -o "epub/${file%.*}.epub" -f markdown-yaml_metadata_block+lists_without_preceding_blankline --lua-filter .github/workflows/pre_to_lines.lua --metadata title="$TITLE" --css .github/workflows/epub-style.css
+            pandoc "$file" -o "epub/${file%.*}.epub" -f markdown-yaml_metadata_block+lists_without_preceding_blankline --lua-filter .github/workflows/epub-pre-to-lines.lua --metadata title="$TITLE" --css .github/workflows/epub-style.css
           done
 
       - name: Commit EPUBs back to repo

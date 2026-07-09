@@ -7,6 +7,8 @@ on:
       - main
     paths:
       - 'practical_test_*.html'
+      - '.github/workflows/*anki*'
+      - 'utils/*anki*'
 
 permissions:
   contents: write
