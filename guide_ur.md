@@ -146,10 +146,31 @@ Claude API ایک request–response model کی پیروی کرتا ہے۔ Claud
 
 ## 1.2 Message Roles
 
-`messages` array تین roles استعمال کرتا ہے:
-- `user` — user messages
-- `assistant` — model responses (history بھیجتے وقت شامل کیے جاتے ہیں)
-- `tool` — tool call results (role واضح طور پر set نہیں کیا جاتا؛ یہ `tool_result` content block کی صورت میں ظاہر ہوتا ہے)
+`messages` array دو conversational roles اور ایک instructional role استعمال کرتا ہے:
+- `user` — user messages، بشمول tool results (یہ ایک `user`-role message کے اندر `tool_result` content block کی صورت میں بھیجے جاتے ہیں، ایک الگ `tool` role کے طور پر نہیں)
+- `assistant` — model responses (history بھیجتے وقت شامل کیے جاتے ہیں)، بشمول tool use requests (`tool_use` content blocks)
+- `system` — top-level `system` field کے ذریعے سیٹ کیا جا سکتا ہے (پہلے turn سے لاگو ہوتا ہے) یا `messages` میں `{"role": "system", ...}` کے طور پر inline شامل کیا جا سکتا ہے (اس نقطے سے آگے لاگو ہوتا ہے، مخصوص placement rules کے تابع — نیچے دیکھیں)
+
+Tool results کو `"tool"` role والے message کے طور پر نہیں بھیجا جاتا۔ یہ ایک `user`-role message کے طور پر بھیجے جاتے ہیں جس کے content میں ایک `tool_result` content block شامل ہوتا ہے:
+
+```json
+{
+  "role": "user",
+  "content": [
+    {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01...",
+      "content": "..."
+    }
+  ]
+}
+```
+
+`system` براہِ راست `messages` array میں بھی ایک role کے طور پر ظاہر ہو سکتا ہے، نہ صرف top-level `system` parameter کے ذریعے۔ اس کا مقصد top-level `system` field کے cached prefix کو invalidate کیے بغیر conversation کے درمیان instructions شامل کرنا ہے۔ اس کے مخصوص placement rules ہیں:
+- یہ ایک `user` turn (بشمول وہ جس میں `tool_result` blocks ہوں) یا server tool use پر ختم ہونے والے `assistant` turn کے فوراً بعد آنا چاہیے۔
+- یہ کسی `assistant` turn سے پہلے آنا چاہیے یا array کا آخری element ہونا چاہیے۔
+- یہ کسی `tool_use` block اور اس کے `tool_result` کے درمیان نہیں آ سکتا — ایسا کرنے پر 400 error ملتا ہے۔
+- بعد میں آنے والے `system` messages (بشمول conversation کے درمیان شامل کیے گئے) پہلے والوں پر اور بعد کے turns کے لیے top-level `system` field پر فوقیت رکھتے ہیں۔
 
 **انتہائی اہم:** ہر API request میں آپ کو **مکمل conversation history** بھیجنی چاہیے۔ Model requests کے درمیان state محفوظ نہیں رکھتا — ہر call آزاد ہوتا ہے۔
 
@@ -2086,10 +2107,31 @@ Claude API ایک request–response model پر کام کرتا ہے۔ Claude Me
 
 ## 1.2 Message Roles
 
-`messages` array میں تین roles ہوتے ہیں:
-- `user` — user messages
-- `assistant` — model responses (history بھیجتے وقت شامل ہوتے ہیں)
-- `tool` — tool call results (عملاً `tool_result` content block)
+`messages` array دو conversational roles اور ایک instructional role استعمال کرتا ہے:
+- `user` — user messages، بشمول tool results (یہ ایک `user`-role message کے اندر `tool_result` content block کی صورت میں بھیجے جاتے ہیں، ایک الگ `tool` role کے طور پر نہیں)
+- `assistant` — model responses (history بھیجتے وقت شامل ہوتے ہیں)، بشمول tool use requests (`tool_use` content blocks)
+- `system` — top-level `system` field کے ذریعے سیٹ کیا جا سکتا ہے (پہلے turn سے لاگو ہوتا ہے) یا `messages` میں `{"role": "system", ...}` کے طور پر inline شامل کیا جا سکتا ہے (اس نقطے سے آگے لاگو ہوتا ہے، مخصوص placement rules کے تابع — نیچے دیکھیں)
+
+Tool results کو `"tool"` role والے message کے طور پر نہیں بھیجا جاتا۔ یہ ایک `user`-role message کے طور پر بھیجے جاتے ہیں جس کے content میں ایک `tool_result` content block شامل ہوتا ہے:
+
+```json
+{
+  "role": "user",
+  "content": [
+    {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01...",
+      "content": "..."
+    }
+  ]
+}
+```
+
+`system` براہِ راست `messages` array میں بھی ایک role کے طور پر ظاہر ہو سکتا ہے، نہ صرف top-level `system` parameter کے ذریعے۔ اس کا مقصد top-level `system` field کے cached prefix کو invalidate کیے بغیر conversation کے درمیان instructions شامل کرنا ہے۔ اس کے مخصوص placement rules ہیں:
+- یہ ایک `user` turn (بشمول وہ جس میں `tool_result` blocks ہوں) یا server tool use پر ختم ہونے والے `assistant` turn کے فوراً بعد آنا چاہیے۔
+- یہ کسی `assistant` turn سے پہلے آنا چاہیے یا array کا آخری element ہونا چاہیے۔
+- یہ کسی `tool_use` block اور اس کے `tool_result` کے درمیان نہیں آ سکتا — ایسا کرنے پر 400 error ملتا ہے۔
+- بعد میں آنے والے `system` messages (بشمول conversation کے درمیان شامل کیے گئے) پہلے والوں پر اور بعد کے turns کے لیے top-level `system` field پر فوقیت رکھتے ہیں۔
 
 **اہم بات:** ہر API request میں مکمل conversation history بھیجیں۔ Model requests کے درمیان state محفوظ نہیں رکھتا؛ ہر call آزاد ہوتی ہے۔
 

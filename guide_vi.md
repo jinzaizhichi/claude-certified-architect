@@ -146,10 +146,31 @@ Claude API tuân theo mô hình request–response. Mỗi request đến Claude 
 
 ## 1.2 Vai trò của Message
 
-Mảng `messages` sử dụng ba vai trò:
-- `user` — tin nhắn của người dùng
-- `assistant` — phản hồi của mô hình (được đưa vào khi gửi lịch sử)
-- `tool` — kết quả gọi tool (vai trò không được đặt một cách tường minh; nó xuất hiện dưới dạng một content block `tool_result`)
+Mảng `messages` sử dụng hai vai trò hội thoại cộng với một vai trò chỉ dẫn:
+- `user` — tin nhắn của người dùng, bao gồm cả kết quả tool (được gửi dưới dạng content block `tool_result` bên trong một message có vai trò `user`, không phải một vai trò `tool` riêng)
+- `assistant` — phản hồi của mô hình (được đưa vào khi gửi lịch sử), bao gồm cả các yêu cầu sử dụng tool (content block `tool_use`)
+- `system` — có thể được đặt qua trường `system` cấp cao nhất (áp dụng từ lượt đầu tiên) hoặc chèn trực tiếp trong `messages` dưới dạng `{"role": "system", ...}` (áp dụng từ điểm đó trở đi, tuân theo các quy tắc vị trí — xem bên dưới)
+
+Kết quả tool không được gửi dưới dạng message có vai trò `"tool"`. Chúng được gửi dưới dạng message có vai trò `user` mà nội dung bao gồm một content block `tool_result`:
+
+```json
+{
+  "role": "user",
+  "content": [
+    {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01...",
+      "content": "..."
+    }
+  ]
+}
+```
+
+`system` cũng có thể xuất hiện trực tiếp như một vai trò trong mảng `messages`, không chỉ qua tham số `system` cấp cao nhất. Điều này nhằm thêm hướng dẫn giữa cuộc hội thoại mà không làm mất hiệu lực của tiền tố (prefix) đã được cache từ trường `system` cấp cao nhất. Nó có các quy tắc vị trí cụ thể:
+- Phải theo ngay sau một lượt `user` (kể cả lượt có chứa block `tool_result`) hoặc một lượt `assistant` kết thúc bằng việc sử dụng server tool.
+- Phải đứng trước một lượt `assistant` hoặc là phần tử cuối cùng của mảng.
+- Không thể nằm giữa một block `tool_use` và `tool_result` tương ứng của nó — làm vậy sẽ trả về lỗi 400.
+- Các message `system` xuất hiện sau (kể cả những message chèn giữa cuộc hội thoại) sẽ được ưu tiên hơn các message trước đó và hơn trường `system` cấp cao nhất đối với các lượt tiếp theo.
 
 **Cực kỳ quan trọng:** với mỗi API request bạn phải gửi **toàn bộ lịch sử hội thoại**. Mô hình không lưu trữ trạng thái giữa các request—mỗi lần gọi là độc lập.
 

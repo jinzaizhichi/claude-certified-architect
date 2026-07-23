@@ -146,10 +146,31 @@ Claude API, istek-yanıt modelini izler. Claude Messages API'ye yapılan her ist
 
 ## 1.2 Mesaj Rolleri
 
-`messages` dizisi üç rol kullanır:
-- `user` — kullanıcı mesajları
-- `assistant` — model yanıtları (geçmiş gönderilirken dahil edilir)
-- `tool` — araç çağrısı sonuçları (rol açıkça ayarlanmaz; bu, `tool_result` içerik bloğu olarak görünür)
+`messages` dizisi iki konuşma rolü ile bir talimat rolü kullanır:
+- `user` — kullanıcı mesajları; araç sonuçları da dahildir (ayrı bir `tool` rolü olarak değil, `user` rolündeki bir mesaj içinde `tool_result` içerik bloğu olarak gönderilir)
+- `assistant` — model yanıtları (geçmiş gönderilirken dahil edilir); araç kullanım istekleri de dahildir (`tool_use` içerik blokları)
+- `system` — üst düzey `system` alanı üzerinden (ilk turdan itibaren geçerlidir) ya da `messages` içinde satır arasında `{"role": "system", ...}` olarak (bu noktadan itibaren geçerlidir, belirli yerleştirme kurallarına tabidir — aşağıya bakın) ayarlanabilir
+
+Araç sonuçları `"tool"` rolünde bir mesaj olarak gönderilmez. İçeriğinde bir `tool_result` içerik bloğu bulunan, `user` rolünde bir mesaj olarak gönderilir:
+
+```json
+{
+  "role": "user",
+  "content": [
+    {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01...",
+      "content": "..."
+    }
+  ]
+}
+```
+
+`system`, yalnızca üst düzey `system` parametresiyle değil, `messages` dizisinde doğrudan bir rol olarak da yer alabilir. Bu, üst düzey `system` alanından gelen önbelleğe alınmış (cached) ön eki geçersiz kılmadan, konuşmanın ortasına talimat eklemek içindir. Bunun belirli yerleştirme kuralları vardır:
+- `tool_result` blokları içeren biri dahil bir `user` turundan hemen sonra, ya da sunucu araç kullanımıyla biten bir `assistant` turundan hemen sonra gelmelidir.
+- Bir `assistant` turundan önce gelmeli ya da dizinin sonunda yer almalıdır.
+- Bir `tool_use` bloğu ile onun `tool_result`'ı arasında yer alamaz — bunu yapmak 400 hatası döndürür.
+- Sonraki `system` mesajları (konuşma ortasında eklenenler dahil), sonraki turlar için önceki mesajlara ve üst düzey `system` alanına göre önceliklidir.
 
 **Kritik derecede önemli:** Her API isteğinde **tam konuşma geçmişini** göndermelisiniz. Model, istekler arasında durumu kalıcı olarak saklamaz; her çağrı bağımsızdır.
 

@@ -146,10 +146,31 @@ Claude API funciona en el principio "solicitud-respuesta". Cada solicitud a Clau
 
 ## 1.2 Roles de los mensajes
 
-El array `messages` utiliza tres roles:
-- `user` -- mensajes del usuario
-- `assistant` -- respuestas del modelo (se incluyen al pasar el historial)
-- `tool` -- resultados de las llamadas a herramientas (el rol no se especifica explícitamente, es un bloque de contenido `tool_result`)
+El array `messages` utiliza dos roles conversacionales más un rol instructivo:
+- `user` -- mensajes del usuario, incluidos los resultados de herramientas (se envían como un bloque de contenido `tool_result` dentro de un mensaje con rol `user`, no como un rol `tool` independiente)
+- `assistant` -- respuestas del modelo (se incluyen al pasar el historial), incluidas las solicitudes de uso de herramientas (bloques de contenido `tool_use`)
+- `system` -- se puede establecer mediante el campo de nivel superior `system` (se aplica desde el primer turno) o de forma intercalada en `messages` como `{"role": "system", ...}` (se aplica a partir de ese punto, sujeto a reglas de colocación específicas; ver más abajo)
+
+Los resultados de herramientas no se envían como un mensaje con rol `"tool"`. Se envían como un mensaje con rol `user` cuyo contenido incluye un bloque de contenido `tool_result`:
+
+```json
+{
+  "role": "user",
+  "content": [
+    {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01...",
+      "content": "..."
+    }
+  ]
+}
+```
+
+`system` también puede aparecer directamente como rol dentro del array `messages`, no solo mediante el parámetro `system` de nivel superior. Esto está pensado para añadir instrucciones a mitad de la conversación sin invalidar el prefijo cacheado del campo `system` de nivel superior. Tiene reglas de colocación específicas:
+- Debe seguir inmediatamente a un turno `user` (incluido uno con bloques `tool_result`) o a un turno `assistant` que termine con uso de una herramienta del servidor.
+- Debe preceder a un turno `assistant` o ser el último elemento del array.
+- No puede situarse entre un bloque `tool_use` y su `tool_result`; hacerlo devuelve un error 400.
+- Los mensajes `system` posteriores (incluidos los intercalados a mitad de conversación) tienen prioridad sobre los anteriores y sobre el campo `system` de nivel superior para los turnos siguientes.
 
 **Crítico:** en cada solicitud a la API, debes pasar el **historial completo de conversación**. El modelo no mantiene estado entre solicitudes -- cada llamada es independiente.
 

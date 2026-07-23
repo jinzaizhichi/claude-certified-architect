@@ -146,10 +146,31 @@ Claude API는 요청을 보내고 응답을 받는 방식으로 동작합니다.
 
 ## 1.2 메시지 역할
 
-`messages` 배열에는 다음 세 가지 역할이 들어갑니다.
-- `user` — 사용자 메시지
-- `assistant` — 모델 응답(기록을 보낼 때 포함)
-- `tool` — tool 호출 결과(역할이 명시적으로 설정되지는 않으며, `tool_result` 콘텐츠 블록으로 나타남)
+`messages` 배열에는 두 가지 대화 역할과 한 가지 지시 역할이 있습니다.
+- `user` — 사용자 메시지. tool 결과도 포함됩니다(별도의 `tool` 역할이 아니라 `user` 역할 메시지 안의 `tool_result` 콘텐츠 블록으로 전송됨)
+- `assistant` — 모델 응답(기록을 보낼 때 포함), tool 사용 요청(`tool_use` 콘텐츠 블록)도 포함됨
+- `system` — 최상위 `system` 필드로 설정하거나(첫 번째 turn부터 적용), `messages` 안에 `{"role": "system", ...}`로 인라인 삽입할 수 있습니다(그 시점부터 적용되며, 아래의 배치 규칙을 따릅니다)
+
+tool 결과는 `"tool"` 역할 메시지로 전송되지 않습니다. `user` 역할 메시지로 전송되며, 그 content에 `tool_result` 콘텐츠 블록이 포함됩니다.
+
+```json
+{
+  "role": "user",
+  "content": [
+    {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01...",
+      "content": "..."
+    }
+  ]
+}
+```
+
+`system`은 최상위 `system` 파라미터뿐 아니라 `messages` 배열 안에 역할로 직접 나타날 수도 있습니다. 이는 최상위 `system` 필드의 캐시된 prefix를 무효화하지 않으면서 대화 중간에 지시를 추가하기 위한 것입니다. 여기에는 다음과 같은 배치 규칙이 있습니다.
+- `user` turn(`tool_result` 블록이 있는 turn 포함) 또는 서버 tool 사용으로 끝나는 `assistant` turn 바로 뒤에 와야 합니다.
+- `assistant` turn 앞에 오거나 배열의 마지막 항목이어야 합니다.
+- `tool_use` 블록과 그에 대응하는 `tool_result` 사이에 위치할 수 없습니다 — 그렇게 하면 400 오류가 반환됩니다.
+- 이후에 오는 `system` 메시지(대화 중간에 삽입된 것 포함)는 이전 메시지 및 이후 turn에 대한 최상위 `system` 필드보다 우선합니다.
 
 **중요:** API를 호출할 때마다 **전체 대화 기록**을 함께 보내야 합니다. Claude는 요청 사이의 상태를 서버에 저장하지 않으므로, 각 호출은 독립적으로 처리됩니다.
 

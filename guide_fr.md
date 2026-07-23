@@ -146,10 +146,31 @@ La Claude API suit un modèle requête–réponse. Chaque requête à la Claude 
 
 ## 1.2 Rôles des messages
 
-Le tableau `messages` utilise trois rôles :
-- `user` — messages de l'utilisateur
-- `assistant` — réponses du modèle (incluses lors de l'envoi de l'historique)
-- `tool` — résultats d'appels d'outils (le rôle n'est pas défini explicitement ; cela apparaît sous forme de bloc de contenu `tool_result`)
+Le tableau `messages` utilise deux rôles conversationnels ainsi qu'un rôle d'instruction :
+- `user` — messages de l'utilisateur, y compris les résultats d'outils (envoyés sous forme de bloc de contenu `tool_result` au sein d'un message de rôle `user`, et non comme un rôle `tool` distinct)
+- `assistant` — réponses du modèle (incluses lors de l'envoi de l'historique), y compris les demandes d'utilisation d'outils (blocs de contenu `tool_use`)
+- `system` — peut être défini via le champ `system` de premier niveau (s'applique dès le premier tour) ou de façon intercalée dans `messages` sous la forme `{"role": "system", ...}` (s'applique à partir de ce point, sous réserve de règles de placement précises — voir ci-dessous)
+
+Les résultats d'outils ne sont pas envoyés comme un message de rôle `"tool"`. Ils sont envoyés comme un message de rôle `user` dont le contenu inclut un bloc de contenu `tool_result` :
+
+```json
+{
+  "role": "user",
+  "content": [
+    {
+      "type": "tool_result",
+      "tool_use_id": "toolu_01...",
+      "content": "..."
+    }
+  ]
+}
+```
+
+`system` peut aussi apparaître directement comme rôle dans le tableau `messages`, pas seulement via le paramètre `system` de premier niveau. Cela permet d'ajouter des instructions en cours de conversation sans invalider le préfixe mis en cache du champ `system` de premier niveau. Ce mécanisme obéit à des règles de placement précises :
+- Il doit immédiatement suivre un tour `user` (y compris un tour contenant des blocs `tool_result`) ou un tour `assistant` se terminant par une utilisation d'outil côté serveur.
+- Il doit précéder un tour `assistant` ou terminer le tableau.
+- Il ne peut pas se situer entre un bloc `tool_use` et son `tool_result` — cela renvoie une erreur 400.
+- Les messages `system` ultérieurs (y compris ceux intercalés en cours de conversation) priment sur les précédents et sur le champ `system` de premier niveau pour les tours suivants.
 
 **Crucialement important :** à chaque requête API, vous devez envoyer **l'historique complet de la conversation**. Le modèle ne conserve pas d'état entre les requêtes — chaque appel est indépendant.
 
