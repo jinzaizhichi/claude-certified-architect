@@ -110,6 +110,7 @@ This repository contains study materials for the **Claude Certified Architect �
 
 - Claude Code: Commands Cheatsheet https://claude-guides.com
 - Top 80 Claude Skills, Agents & GitHub Repos for AI — The Complete Guide https://x.com/paullarionov/status/2038254131849134220
+- Claude Certified Architect in Spanish — study guides for Foundations and Professional, an EN→ES glossary, and a free 163-question practice simulator (no signup) https://github.com/juanmartincoma-collab/claude-certified-architect-es
 
 ## How to Contribute
 
