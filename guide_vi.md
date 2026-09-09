@@ -2687,12 +2687,12 @@ Khi Edit thất bại do khớp văn bản không duy nhất:
 
 **Bạn khuyến nghị điều gì?**
 
-- A) Tạo một phiên bản cá nhân dưới `~/.claude/skills/` với tên khác, ví dụ `/my-commit`. **[ĐÁP ÁN ĐÚNG]**
+- A) Tạo một phiên bản cá nhân dưới `~/.claude/skills/` với tên khác, ví dụ `/my-commit`.
 - B) Thêm logic điều kiện dựa trên username trong frontmatter của skill dự án.
-- C) Tạo một phiên bản cá nhân tại `~/.claude/skills/commit/SKILL.md` với cùng tên.
+- C) Tạo một phiên bản cá nhân tại `~/.claude/skills/commit/SKILL.md` với cùng tên. **[ĐÁP ÁN ĐÚNG]**
 - D) Đặt `override: true` trong frontmatter của skill cá nhân để ưu tiên nó hơn phiên bản dự án.
 
-**Vì sao A:** Các skill cá nhân được ưu tiên hơn các skill dự án có cùng tên, vì vậy việc dùng lại tên `commit` sẽ âm thầm che khuất skill của nhóm chỉ đối với riêng lập trình viên này — họ sẽ ngừng nhận được các cập nhật mỗi khi nhóm cải tiến `/commit`, và phải tự nhớ rằng mình đang chạy một skill khác dưới cùng một lệnh. Đặt tên phiên bản cá nhân là `/my-commit` giúp tránh hoàn toàn xung đột này: lập trình viên vẫn tiếp tục dùng `/commit` do nhóm duy trì, đồng thời có một skill riêng, được đặt tên rõ ràng cho quy trình làm việc cá nhân, không có nguy cơ nhầm lẫn giữa hai skill hay bỏ lỡ các cập nhật của nhóm.
+**Vì sao C:** Việc phân giải skill dựa trên vị trí: cấp doanh nghiệp ghi đè cấp cá nhân, và cấp cá nhân ghi đè cấp dự án. Do đó một skill cá nhân tại `~/.claude/skills/commit/SKILL.md` sẽ che khuất `.claude/skills/commit/SKILL.md` của nhóm chỉ đối với riêng lập trình viên đó — không có gì trong repository thay đổi, nên các đồng đội vẫn chạy phiên bản dự án và `/commit` hoạt động y như cũ với mọi người khác. Phương án A chạy được về mặt cơ chế nhưng là khuyến nghị yếu hơn: `/commit` của dự án vẫn hoạt động song song với `/my-commit`, và hai skill có trường `description` gần như giống hệt nhau khiến việc Claude tự động chọn skill trở nên khó đoán, đồng thời phá vỡ thói quen sử dụng và tài liệu của nhóm vốn hướng dẫn chạy `/commit`. B sai vì frontmatter của skill không có logic điều kiện hay khả năng đọc username, và nó còn buộc phải sửa tệp dự án dùng chung — điều mà tình huống đã loại trừ. D sai vì không tồn tại trường `override` — thứ tự ưu tiên đến từ vị trí, không phải từ một khai báo.
 
 ---
 

@@ -2689,12 +2689,12 @@ Edit이 고유하지 않은 텍스트 일치 때문에 실패할 때:
 
 **무엇을 권장하나요?**
 
-- A) `~/.claude/skills/` 아래 `/my-commit` 같은 다른 이름으로 개인 버전을 만든다. **[정답]**
+- A) `~/.claude/skills/` 아래 `/my-commit` 같은 다른 이름으로 개인 버전을 만든다.
 - B) 프로젝트 Skill frontmatter에 사용자 이름 기반 조건부 로직을 추가한다.
-- C) 같은 이름으로 `~/.claude/skills/commit/SKILL.md`에 개인 버전을 만든다.
+- C) 같은 이름으로 `~/.claude/skills/commit/SKILL.md`에 개인 버전을 만든다. **[정답]**
 - D) 개인 Skill frontmatter에 `override: true`를 설정해 프로젝트 버전보다 우선하게 한다.
 
-**A인 이유:** 개인 Skill은 같은 이름의 프로젝트 Skill보다 우선하므로, `commit`이라는 이름을 재사용하면 이 개발자에게만 팀의 Skill이 조용히 가려집니다. 팀이 `/commit`을 개선해도 업데이트를 받지 못하게 되고, 같은 명령으로 다른 Skill을 실행하고 있다는 사실을 스스로 기억해야 합니다. 개인 버전에 `/my-commit`이라는 이름을 붙이면 이런 충돌을 완전히 피할 수 있습니다. 개발자는 팀이 관리하는 `/commit`을 계속 사용하면서, 개인 workflow를 위한 별도의 명확히 구분된 Skill을 갖게 되어 둘을 혼동하거나 팀의 업데이트를 놓칠 위험이 없습니다.
+**C인 이유:** Skill 해석은 위치에 따라 결정됩니다. 엔터프라이즈가 개인을 덮어쓰고, 개인이 프로젝트를 덮어씁니다. 따라서 `~/.claude/skills/commit/SKILL.md`에 둔 개인 Skill은 그 개발자에게만 팀의 `.claude/skills/commit/SKILL.md`를 가립니다. 저장소에는 아무 변경도 생기지 않으므로 팀원들은 계속 프로젝트 버전을 실행하고, 다른 모두에게 `/commit`은 그대로 동작합니다. A는 동작 자체는 하지만 더 약한 권장안입니다. 프로젝트의 `/commit`이 `/my-commit`과 함께 계속 활성 상태로 남고, `description`이 거의 같은 Skill이 둘이면 Claude의 자동 Skill 선택이 예측하기 어려워지며, `/commit`을 실행하도록 안내하는 팀 문서와 몸에 익은 습관도 깨집니다. B는 Skill frontmatter에 조건부 로직이나 사용자 이름 기능이 없고, 시나리오가 배제한 공유 프로젝트 파일을 수정해야 하므로 맞지 않습니다. D는 `override` 필드 자체가 없기 때문에 틀립니다. 우선순위는 선언이 아니라 위치에서 나옵니다.
 
 ---
 

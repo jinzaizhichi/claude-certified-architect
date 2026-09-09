@@ -2801,12 +2801,12 @@ Quando `Edit` fallisce per match non univoco:
 
 **Cosa consigli?**
 
-- A) Creare una versione personale in `~/.claude/skills/` con un nome diverso, ad esempio `/my-commit`. **[CORRETTA]**
+- A) Creare una versione personale in `~/.claude/skills/` con un nome diverso, ad esempio `/my-commit`.
 - B) Aggiungere logica condizionale basata sul nome utente nel frontmatter della skill di progetto.
-- C) Creare una versione personale in `~/.claude/skills/commit/SKILL.md` con lo stesso nome.
+- C) Creare una versione personale in `~/.claude/skills/commit/SKILL.md` con lo stesso nome. **[CORRETTA]**
 - D) Impostare `override: true` nel frontmatter della skill personale per darle priorità rispetto alla versione di progetto.
 
-**Perché A:** Le skill personali hanno la precedenza sulle skill di progetto con lo stesso nome, quindi riutilizzare il nome `commit` nasconderebbe silenziosamente la skill del team solo per questo sviluppatore, che smetterebbe di ricevere gli aggiornamenti ogni volta che il team migliora `/commit` e dovrebbe ricordarsi di star eseguendo una skill diversa sotto lo stesso comando. Chiamare la variante personale `/my-commit` evita del tutto questo conflitto: lo sviluppatore continua a usare il `/commit` mantenuto dal team e ottiene una skill separata, chiaramente identificata, per il proprio workflow personale, senza rischio di confondere le due o perdere gli aggiornamenti del team.
+**Perché C:** La risoluzione delle skill dipende dalla posizione: il livello enterprise ha la precedenza su quello personale e il livello personale ha la precedenza su quello di progetto. Una skill personale in `~/.claude/skills/commit/SKILL.md` maschera quindi la `.claude/skills/commit/SKILL.md` del team solo per quello sviluppatore: nel repository non cambia nulla, così i compagni continuano a eseguire la versione di progetto e `/commit` si comporta allo stesso modo per tutti gli altri. A funziona meccanicamente ma è la raccomandazione più debole: il `/commit` di progetto resta attivo accanto a `/my-commit` e due skill con campi `description` quasi identici rendono imprevedibile la selezione automatica della skill da parte di Claude, oltre a rompere l'abitudine e la documentazione del team che indica di eseguire `/commit`. B non funziona perché il frontmatter di una skill non offre logica condizionale né accesso al nome utente, e richiederebbe comunque di modificare il file di progetto condiviso, cosa che lo scenario esclude. D non funziona perché il campo `override` non esiste: la precedenza deriva dalla posizione, non da una dichiarazione.
 
 ---
 
