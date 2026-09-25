@@ -2680,12 +2680,12 @@ Edit, benzersiz olmayan metin eşleşmesi nedeniyle başarısız olduğunda:
 
 **Ne önerirsiniz?**
 
-- A) `~/.claude/skills/` altında farklı bir adla kişisel bir sürüm oluşturmak, örneğin `/my-commit`. **[DOĞRU]**
+- A) `~/.claude/skills/` altında farklı bir adla kişisel bir sürüm oluşturmak, örneğin `/my-commit`.
 - B) Proje skill frontmatter'ında kullanıcı adına dayalı koşullu mantık eklemek.
-- C) Aynı adla `~/.claude/skills/commit/SKILL.md` konumunda kişisel bir sürüm oluşturmak.
+- C) Aynı adla `~/.claude/skills/commit/SKILL.md` konumunda kişisel bir sürüm oluşturmak. **[DOĞRU]**
 - D) Kişisel skill frontmatter'ında proje sürümüne göre öncelik vermek için `override: true` ayarlamak.
 
-**Neden A:** Kişisel skill'ler aynı ada sahip proje skill'lerine göre önceliklidir, bu yüzden `commit` adını yeniden kullanmak, ekibin skill'ini yalnızca bu geliştirici için sessizce gölgeler — ekip `/commit`'i her geliştirdiğinde güncellemeleri almayı bırakır ve aynı komut altında farklı bir skill çalıştırdığını hatırlaması gerekir. Kişisel sürümü `/my-commit` olarak adlandırmak bu çakışmayı tamamen ortadan kaldırır: geliştirici ekibin bakımını yaptığı `/commit`'i kullanmaya devam eder ve kişisel iş akışı için açıkça adlandırılmış, ayrı bir skill elde eder; ikisini karıştırma veya ekip güncellemelerini kaçırma riski olmaz.
+**Neden C:** Skill çözümlemesi konuma göre yapılır: kurumsal düzey kişiseli, kişisel düzey de projeyi geçersiz kılar. Bu nedenle `~/.claude/skills/commit/SKILL.md` konumundaki kişisel bir skill, ekibin `.claude/skills/commit/SKILL.md` dosyasını yalnızca o geliştirici için gölgeler — depoda hiçbir şey değişmez, ekip arkadaşları proje sürümünü çalıştırmaya devam eder ve `/commit` diğer herkes için aynı şekilde davranır. A mekanik olarak çalışır ama daha zayıf bir öneridir: projenin `/commit`'i `/my-commit` ile birlikte etkin kalır ve `description` alanları neredeyse aynı olan iki skill, Claude'un otomatik skill seçimini öngörülemez hâle getirir; ayrıca `/commit` çalıştırmayı söyleyen alışkanlığı ve ekip belgelerini bozar. B geçersizdir çünkü skill frontmatter'ında koşullu mantık ya da kullanıcı adı olanağı yoktur; üstelik senaryonun dışladığı paylaşılan proje dosyasını düzenlemeyi gerektirir. D geçersizdir çünkü `override` diye bir alan yoktur — öncelik bir bildirimden değil, konumdan gelir.
 
 ---
 

@@ -2687,12 +2687,12 @@ Main agent: keeps one line in context instead of 15 files
 
 **你會建議什麼做法?**
 
-- A) 在 `~/.claude/skills/` 下以不同名稱建立個人版本,例如 `/my-commit`。**[CORRECT]**
+- A) 在 `~/.claude/skills/` 下以不同名稱建立個人版本,例如 `/my-commit`。
 - B) 在專案技能 frontmatter 中加入以使用者名稱為條件的判斷邏輯。
-- C) 在 `~/.claude/skills/commit/SKILL.md` 以相同名稱建立個人版本。
+- C) 在 `~/.claude/skills/commit/SKILL.md` 以相同名稱建立個人版本。**[CORRECT]**
 - D) 在個人技能 frontmatter 中設定 `override: true`,使其優先於專案版本。
 
-**為何選 A:** 個人技能優先於同名的專案技能,因此重複使用 `commit` 這個名稱,會讓團隊的技能只對這位開發者悄悄被遮蔽——每當團隊改進 `/commit` 時,他都收不到更新,還得自己記得目前執行的是同名命令下的另一個技能。將個人版本命名為 `/my-commit` 能完全避免這種衝突:開發者仍可使用團隊維護的 `/commit`,同時擁有一個名稱清楚、獨立的個人工作流程技能,不會混淆兩者,也不會錯過團隊的更新。
+**為何選 C:** 技能的解析取決於存放位置:企業層級覆蓋個人層級,個人層級覆蓋專案層級。因此放在 `~/.claude/skills/commit/SKILL.md` 的個人技能,只會對這位開發者遮蔽團隊的 `.claude/skills/commit/SKILL.md`——儲存庫中沒有任何變動,隊友仍然執行專案版本,`/commit` 對其他所有人的行為完全不變。選項 A 在機制上可行,但作為建議較弱:專案的 `/commit` 會與 `/my-commit` 並存,而兩個 `description` 幾乎相同的技能會讓 Claude 的自動技能選擇變得難以預測,同時也破壞了「執行 `/commit`」這個使用習慣與團隊文件。選項 B 不成立,因為技能 frontmatter 沒有條件判斷或使用者名稱的機制,而且這麼做需要修改題目已排除的共用專案檔案。選項 D 不成立,因為根本沒有 `override` 這個欄位——優先順序來自存放位置,而非宣告。
 
 ---
 
